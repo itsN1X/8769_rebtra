@@ -141,10 +141,10 @@ table tr {
  border-bottom:1px solid #ddd;
  background-color:#020;
 }
-table td:hover {
+table tr:hover {
  background-color:#050;
 }
-table tr:hover {
+table td:hover {
  background-color:#070;
 }
 .zh {
@@ -160,6 +160,15 @@ table tr:hover {
 }
 .zd:hover {
  background-color:#900;
+}
+.zf {
+ background-color:#202;
+}
+.zf:hover {
+ background-color:#707;
+}
+.ze:hover {
+ background-color:#909;
 }
 #th td {
  padding:12px;
@@ -227,6 +236,14 @@ function mt(xD)
         dt.setAttribute("class","zd");
         dc.setAttribute("class","zd");
         ds.setAttribute("class","zd");
+        }
+        else if((dz/dx-1)==0)
+        {
+        cr.setAttribute("class","zf");
+        dn.setAttribute("class","ze");
+        dt.setAttribute("class","ze");
+        dc.setAttribute("class","ze");
+        ds.setAttribute("class","ze");
         }
         CT.appendChild(cr);
         cr.appendChild(dn);
