@@ -283,11 +283,10 @@ function chart1(cD)
     yi1 = ymax1-ymin1;  //length of y
     //note: this means charting relative, like binance, not gecko..
     //create first point
-    var point1at0 = svg1.createSVGPoint();
-    point1at0.x=0;
-    point1at1.y=yf1;
-   	polyline1.points.appendItem(point1at0);
-
+    var point1atO = svg1.createSVGPoint();
+    point1atO.x=0;
+    point1atO.y=yf1;
+   	polyline1.points.appendItem(point1atO);
     //now find each pair of x/y
     for(let qqq=0;qqq<cD.length;qqq++)
     {
@@ -296,6 +295,11 @@ function chart1(cD)
         point1.y = yf1 * (1 - parseInt(cD[qqq].data)/ymax1);
     	polyline1.points.appendItem(point1);
     }
+    //create last point
+    var point1atN = svg1.createSVGPoint();
+    point1atN.x=xf1;
+    point1atN.y=yf1;
+   	polyline1.points.appendItem(point1atN);
 }
 
 
@@ -313,11 +317,15 @@ er.onload = function()
 er.send();
 </script>
 <hr>
-
+<h4>COIL : Historical Supply Curve</h4>
 
 
 <svg id="svg01" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:40%;width:100%">
-<polyline id="polyline-id" points="" style="fill:rgba(0,255,209,0.5);stroke:#00f;stroke-width:0.2" />
+<linearGradient id="mg1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.5"></stop>
+      <stop offset="100%" style="stop-color:rgb(0,255,127);stop-opacity:1"></stop>
+    </linearGradient>
+<polyline id="polyline-id" points="" style="fill:url(#mg1);stroke:none;stroke-width:1"></polyline>
 </svg>
 
 
