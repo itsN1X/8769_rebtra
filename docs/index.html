@@ -185,7 +185,7 @@ table td:hover {
 <h1 class="hh1">rebtra</h1>
 <h2 class="hh2">Rebase & Debase Tracer Tracker<BR><sup>(CoilCrypto.com)</sup></h2>
 <h4></h4>
-<h6>Made with ++❤; by itsN1X</h6>
+<h6>Made with ++❤; by <a href="https://github.com/itsN1X">itsN1X</a></h6>
 <br>
 <h4>Next Monetary Policy revision ☟</h4>
 <div align="center" id="nd"></div>
@@ -262,12 +262,71 @@ TS.textContent=(Math.trunc(parseInt(xD[xD.length-1].data)/1e9)).toLocaleString()
 LD.textContent=new Date(tt);
 LT.textContent=oo.getUTCHours()+"h "+oo.getUTCMinutes()+"m "+oo.getUTCSeconds()+"s";
 }
-er.onload = function() {var ed=JSON.parse(this.response); mt(ed.result);}
+
+function chart1(cD)
+{
+	var svg1 = document.getElementById('svg01');
+	var polyline1= document.getElementById('polyline-id');
+	var xf1 = 100; //x-frame-size
+	var yf1 = 100; //y-frame-size
+	//  find the limits on x/y coordinates
+    xmin1 = parseInt(cD[0].timeStamp);   //first time
+    xmax1 = parseInt(cD[cD.length-1].timeStamp);   //last time
+    xi1 = xmax1-xmin1;  //length of x
+    //note: this means we can use either of baseNumber or timeStamp
+    ymin1 = Math.min.apply(Math, cD.map(function(o) { 
+                    return parseInt(o.data);  
+                }));   //minimum coils
+    ymax1 = Math.max.apply(Math, cD.map(function(o) { 
+                    return parseInt(o.data);  
+                }));   //maximum coils
+    yi1 = ymax1-ymin1;  //length of y
+    //note: this means charting relative, like binance, not gecko..
+    //create first point
+    var point1at0 = svg1.createSVGPoint();
+    point1at0.x=0;
+    point1at1.y=yf1;
+   	polyline1.points.appendItem(point1at0);
+
+    //now find each pair of x/y
+    for(let qqq=0;qqq<cD.length;qqq++)
+    {
+        var point1 = svg1.createSVGPoint();
+        point1.x = xf1 * (parseInt(cD[qqq].timeStamp)-xmin1)/xi1;
+        point1.y = yf1 * (1 - parseInt(cD[qqq].data)/ymax1);
+    	polyline1.points.appendItem(point1);
+    }
+}
+
+
+
+
+
+
+
+er.onload = function()
+{
+    var ed=JSON.parse(this.response);
+    mt(ed.result);
+    chart1(ed.result);
+}
 er.send();
 </script>
+<hr>
+
+
+
+<svg id="svg01" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:40%;width:100%">
+<polyline id="polyline-id" points="" style="fill:rgba(0,255,209,0.5);stroke:#00f;stroke-width:0.2" />
+</svg>
+
+
+
+
+
 <hr><hr><hr><hr>
 <h3>Thank Ü for ya time!</h3>
-<h5>> sbecial thanks to dear <a href="https://t.me/coilcrypto">ghost#8941</a> for the motivation!</h5>
+<h5>> sbecial thanks to dear <a href="https://t.me/CoilCrypto">ghost#8941</a> for the motivation!</h5>
 <h6>> 2x sbecial thanks to - The EtherScan!</h6>
 <div align=center><font size="1">$ETHer :: 0xD0f79B71A8ffB7f70392630f8BFc900fcA27af42</font></div>
 <h5>Do visit <b><a href="https://9xo.github.io/R/teb">9xo/R</a></b> to help me with kind♥</h5>
