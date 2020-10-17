@@ -298,6 +298,7 @@ function chart1(cD)
                     return parseInt(o.data);  
                 }));   //maximum coils
     yi1 = ymax1-ymin1;  //length of y
+//note: parseInt because coils are denominated in 1e-9=1 ratio
     //note: this means charting relative, like binance, not gecko..
     //create first point
     var point1atO = svg1.createSVGPoint();
@@ -343,12 +344,13 @@ for(let qqqq=0;qqqq<cD.length;qqqq++)
 }
 console.log(qlist);
     ymin2 = Math.min.apply(Math, qlist.map(function(o) { 
-                    return parseInt(o[1]);  
+                    return parseFloat(o[1]);  
                 }));   //minimum coils
     ymax2 = Math.max.apply(Math, qlist.map(function(o) { 
-                    return parseInt(o[1]);  
+                    return parseFloat(o[1]);  
                 }));   //maximum coils
     yi2 = ymax2-ymin2;  //length of y
+//note: parseFloat because qlist is a fractional ratio
     //note: this means charting relative, like binance, not gecko..
     //create first point
     var point2atO = svg2.createSVGPoint();
