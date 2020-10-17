@@ -344,7 +344,7 @@ console.log(qlist);
     //create first point
     var point2atO = svg2.createSVGPoint();
     point2atO.x=0;
-    point2atO.y=yf2*ymax2/yi2;
+    point2atO.y=yf2;
    	polyline2.points.appendItem(point2atO);
     //now find each pair of x/y
     for(let qqqqq=0;qqqqq<qlist.length;qqqqq++)
@@ -357,7 +357,7 @@ console.log(qlist);
     //create last point
     var point2atN = svg2.createSVGPoint();
     point2atN.x=xf2;
-    point2atN.y=yf2*ymax2/yi2;
+    point2atN.y=yf2;
     polyline2.points.appendItem(point2atN);
 }
 er.onload = function()
