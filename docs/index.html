@@ -212,6 +212,60 @@ table td:hover {
 <polyline id="polyline-id2" style="fill:url(#mg2);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
 </svg>
 <hr>
+<h4>Historical Price (in ETH)</h4>
+<svg id="svg03" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<linearGradient id="mg3" x1="50%" y1="0%" x2="50%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+<stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
+</linearGradient>
+<polyline id="polyline-id3" style="fill:url(#mg3);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
+</svg>
+<hr>
+<h4>Historical Price (in $)</h4>
+<svg id="svg04" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<linearGradient id="mg4" x1="50%" y1="0%" x2="50%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+<stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
+</linearGradient>
+<polyline id="polyline-id4" style="fill:url(#mg4);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
+</svg>
+<hr>
+<h4>Historical Market Capitalization (in ETH)</h4>
+<svg id="svg05" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<linearGradient id="mg5" x1="50%" y1="0%" x2="50%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+<stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
+</linearGradient>
+<polyline id="polyline-id5" style="fill:url(#mg5);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
+</svg>
+<hr>
+<h4>Historical Market Capitalization (in $)</h4>
+<svg id="svg06" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<linearGradient id="mg6" x1="50%" y1="0%" x2="50%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+<stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
+</linearGradient>
+<polyline id="polyline-id6" style="fill:url(#mg6);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
+</svg>
+<hr>
+<h4>Historical Trade Volumes (in ETH)</h4>
+<svg id="svg07" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<linearGradient id="mg7" x1="50%" y1="0%" x2="50%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+<stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
+</linearGradient>
+<polyline id="polyline-id7" style="fill:url(#mg7);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
+</svg>
+<hr>
+<h4>Historical Trade Volumes (in $)</h4>
+<svg id="svg08" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<linearGradient id="mg8" x1="50%" y1="0%" x2="50%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+<stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
+</linearGradient>
+<polyline id="polyline-id8" style="fill:url(#mg8);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
+</svg>
+<hr>
 <h3>Recent history of basing</h3>
 <table id="ct">
 <thead id="th">
@@ -232,6 +286,10 @@ LD=document.getElementById("ld");
 CT=document.getElementById("ct");
 er=new XMLHttpRequest();
 er.open("GET","https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x3936Ad01cf109a36489d93cabdA11cF062fd3d48&topic0=0x72725a3b1e5bd622d6bcd1339bb31279c351abe8f541ac7fd320f24e1b1641f2&apikey=E886KCIJYVFPED7GXEA5PR9I9WHCTBVHJ4",true);
+eg=new XMLHttpRequest();
+eg.open("GET","https://api.coingecko.com/api/v3/coins/coil-crypto/market_chart?vs_currency=eth&days=max",true);
+ug=new XMLHttpRequest();
+ug.open("GET","https://api.coingecko.com/api/v3/coins/coil-crypto/market_chart?vs_currency=usd&days=max",true);
 function mt(xD)
 {
     for(let qq=0;qq<xD.length;qq++)
@@ -298,7 +356,7 @@ function chart1(cD)
                     return parseInt(o.data);  
                 }));   //maximum coils
     yi1 = ymax1-ymin1;  //length of y
-//note: parseInt because coils are denominated in 1e-9=1 ratio
+//note: parseInt because coils are denominated in 1e-9:1 ratio
     //note: this means charting relative, like binance, not gecko..
     //create first point
     var point1atO = svg1.createSVGPoint();
@@ -332,17 +390,16 @@ function chart2(cD)
     xi2 = xmax2-xmin2;  //length of x
     //note: this means we can use either of baseNumber or timeStamp
 // first, collect all the datums
-var qlist=[];
-for(let qqqq=0;qqqq<cD.length;qqqq++)
-{
-    qdx=parseInt(cD[((qqqq==0)?0:(qqqq-1))].data);
-    qdz=parseInt(cD[qqqq].data);
-    qdc=(qdz/qdx-1)*100;
-    qdt=parseInt(cD[qqqq].timeStamp)
-    qset=[qdt,qdc];
-    qlist.push(qset);
-}
-console.log(qlist);
+    var qlist=[];
+    for(let qqqq=0;qqqq<cD.length;qqqq++)
+    {
+        qdx=parseInt(cD[((qqqq==0)?0:(qqqq-1))].data);
+        qdz=parseInt(cD[qqqq].data);
+        qdc=(qdz/qdx-1)*100;
+        qdt=parseInt(cD[qqqq].timeStamp)
+        qset=[qdt,qdc];
+        qlist.push(qset);
+    }
     ymin2 = Math.min.apply(Math, qlist.map(function(o) { 
                     return parseFloat(o[1]);  
                 }));   //minimum coils
@@ -371,6 +428,240 @@ console.log(qlist);
     point2atN.y=yf2;
     polyline2.points.appendItem(point2atN);
 }
+function chart3(gU)
+{
+//for the USD price chart
+	var svg3 = document.getElementById('svg03');
+	var polyline3= document.getElementById('polyline-id3');
+	var xf3 = 100; //x-frame-size
+	var yf3 = 100; //y-frame-size
+	//  find the limits on x/y coordinates
+    xmin3 = gU[0][0];   //first time
+    xmax3 = gU[gU.length-1][0];   //last time
+    xi3 = xmax3-xmin3;  //length of x
+    ymin3 = Math.min.apply(Math, gU.map(function(o) { 
+                    return o[1];  
+                }));   //minimum USD price
+    ymax3 = Math.max.apply(Math, gU.map(function(o) { 
+                    return o[1];  
+                }));   //maximum USD Price
+    yi3 = ymax3-ymin3;  //length of y
+//note: parseInt because coils are denominated in 1e-9:1 ratio
+    //note: this means charting relative, like binance, not gecko..
+    //create first point
+    var point3atO = svg3.createSVGPoint();
+    point3atO.x=0;
+    point3atO.y=yf3;
+   	polyline3.points.appendItem(point3atO);
+    //now find each pair of x/y
+    for(let qqq=0;qqq<gU.length;qqq++)
+    {
+        var point3 = svg3.createSVGPoint();
+        point3.x = xf3 * (gU[qqq][0]-xmin3)/xi3;
+        point3.y = yf3 * (1 - gU[qqq][1]/ymax3);
+    	polyline3.points.appendItem(point3);
+    }
+    //create last point
+    var point3atN = svg3.createSVGPoint();
+    point3atN.x=xf3;
+    point3atN.y=yf3;
+   	polyline3.points.appendItem(point3atN);
+}
+function chart4(gE)
+{
+//for the ETH Price chart
+	var svg4 = document.getElementById('svg04');
+	var polyline4= document.getElementById('polyline-id4');
+	var xf4 = 100; //x-frame-size
+	var yf4 = 100; //y-frame-size
+	//  find the limits on x/y coordinates
+    xmin4 = gE[0][0];   //first time
+    xmax4 = gE[gE.length-1][0];   //last time
+    xi4 = xmax4-xmin4;  //length of x
+    ymin4 = Math.min.apply(Math, gE.map(function(o) { 
+                    return o[1];  
+                }));   //minimum USD price
+    ymax4 = Math.max.apply(Math, gE.map(function(o) { 
+                    return o[1];  
+                }));   //maximum USD Price
+    yi4 = ymax4-ymin4;  //length of y
+//note: parseInt because coils are denominated in 1e-9:1 ratio
+    //note: this means charting relative, like binance, not gecko..
+    //create first point
+    var point4atO = svg4.createSVGPoint();
+    point4atO.x=0;
+    point4atO.y=yf4;
+   	polyline4.points.appendItem(point4atO);
+    //now find each pair of x/y
+    for(let qqq=0;qqq<gE.length;qqq++)
+    {
+        var point4 = svg4.createSVGPoint();
+        point4.x = xf4 * (gE[qqq][0]-xmin4)/xi4;
+        point4.y = yf4 * (1 - gE[qqq][1]/ymax4);
+    	polyline4.points.appendItem(point4);
+    }
+    //create last point
+    var point4atN = svg4.createSVGPoint();
+    point4atN.x=xf4;
+    point4atN.y=yf4;
+   	polyline4.points.appendItem(point4atN);
+}
+function chart5(gU)
+{
+//for the Supply chart
+	var svg5 = document.getElementById('svg05');
+	var polyline5= document.getElementById('polyline-id5');
+	var xf5 = 100; //x-frame-size
+	var yf5 = 100; //y-frame-size
+	//  find the limits on x/y coordinates
+    xmin5 = gU[0][0];   //first time
+    xmax5 = gU[gU.length-1][0];   //last time
+    xi5 = xmax5-xmin5;  //length of x
+    ymin5 = Math.min.apply(Math, gU.map(function(o) { 
+                    return o[1];  
+                }));   //minimum USD price
+    ymax5 = Math.max.apply(Math, gU.map(function(o) { 
+                    return o[1];  
+                }));   //maximum USD Price
+    yi5 = ymax5-ymin5;  //length of y
+//note: parseInt because coils are denominated in 1e-9:1 ratio
+    //note: this means charting relative, like binance, not gecko..
+    //create first point
+    var point5atO = svg5.createSVGPoint();
+    point5atO.x=0;
+    point5atO.y=yf5;
+   	polyline5.points.appendItem(point5atO);
+    //now find each pair of x/y
+    for(let qqq=0;qqq<gU.length;qqq++)
+    {
+        var point5 = svg5.createSVGPoint();
+        point5.x = xf5 * (gU[qqq][0]-xmin5)/xi5;
+        point5.y = yf5 * (1 - gU[qqq][1]/ymax5);
+    	polyline5.points.appendItem(point5);
+    }
+    //create last point
+    var point5atN = svg5.createSVGPoint();
+    point5atN.x=xf5;
+    point5atN.y=yf5;
+   	polyline5.points.appendItem(point5atN);
+}
+function chart6(gE)
+{
+//for the Supply chart
+	var svg6 = document.getElementById('svg06');
+	var polyline6= document.getElementById('polyline-id6');
+	var xf6 = 100; //x-frame-size
+	var yf6 = 100; //y-frame-size
+	//  find the limits on x/y coordinates
+    xmin6 = gE[0][0];   //first time
+    xmax6 = gE[gE.length-1][0];   //last time
+    xi6 = xmax6-xmin6;  //length of x
+    ymin6 = Math.min.apply(Math, gE.map(function(o) { 
+                    return o[1];  
+                }));   //minimum USD price
+    ymax6 = Math.max.apply(Math, gE.map(function(o) { 
+                    return o[1];  
+                }));   //maximum USD Price
+    yi6 = ymax6-ymin6;  //length of y
+//note: parseInt because coils are denominated in 1e-9:1 ratio
+    //note: this means charting relative, like binance, not gecko..
+    //create first point
+    var point6atO = svg6.createSVGPoint();
+    point6atO.x=0;
+    point6atO.y=yf6;
+   	polyline6.points.appendItem(point6atO);
+    //now find each pair of x/y
+    for(let qqq=0;qqq<gE.length;qqq++)
+    {
+        var point6 = svg6.createSVGPoint();
+        point6.x = xf6 * (gE[qqq][0]-xmin6)/xi6;
+        point6.y = yf6 * (1 - gE[qqq][1]/ymax6);
+    	polyline6.points.appendItem(point6);
+    }
+    //create last point
+    var point6atN = svg6.createSVGPoint();
+    point6atN.x=xf6;
+    point6atN.y=yf6;
+   	polyline6.points.appendItem(point6atN);
+}
+function chart7(gU)
+{
+//for the Supply chart
+	var svg7 = document.getElementById('svg07');
+	var polyline7= document.getElementById('polyline-id7');
+	var xf7 = 100; //x-frame-size
+	var yf7 = 100; //y-frame-size
+	//  find the limits on x/y coordinates
+    xmin7 = gU[0][0];   //first time
+    xmax7 = gU[gU.length-1][0];   //last time
+    xi7 = xmax7-xmin7;  //length of x
+    ymin7 = Math.min.apply(Math, gU.map(function(o) { 
+                    return o[1];  
+                }));   //minimum USD price
+    ymax7 = Math.max.apply(Math, gU.map(function(o) { 
+                    return o[1];  
+                }));   //maximum USD Price
+    yi7 = ymax7-ymin7;  //length of y
+//note: parseInt because coils are denominated in 1e-9:1 ratio
+    //note: this means charting relative, like binance, not gecko..
+    //create first point
+    var point7atO = svg7.createSVGPoint();
+    point7atO.x=0;
+    point7atO.y=yf7;
+   	polyline7.points.appendItem(point7atO);
+    //now find each pair of x/y
+    for(let qqq=0;qqq<gU.length;qqq++)
+    {
+        var point7 = svg7.createSVGPoint();
+        point7.x = xf7 * (gU[qqq][0]-xmin7)/xi7;
+        point7.y = yf7 * (1 - gU[qqq][1]/ymax7);
+    	polyline7.points.appendItem(point7);
+    }
+    //create last point
+    var point7atN = svg7.createSVGPoint();
+    point7atN.x=xf7;
+    point7atN.y=yf7;
+   	polyline7.points.appendItem(point7atN);
+}
+function chart8(gE)
+{
+//for the Supply chart
+	var svg8 = document.getElementById('svg08');
+	var polyline8= document.getElementById('polyline-id8');
+	var xf8 = 100; //x-frame-size
+	var yf8 = 100; //y-frame-size
+	//  find the limits on x/y coordinates
+    xmin8 = gE[0][0];   //first time
+    xmax8 = gE[gE.length-1][0];   //last time
+    xi8 = xmax8-xmin8;  //length of x
+    ymin8 = Math.min.apply(Math, gE.map(function(o) { 
+                    return o[1];  
+                }));   //minimum USD price
+    ymax8 = Math.max.apply(Math, gE.map(function(o) { 
+                    return o[1];  
+                }));   //maximum USD Price
+    yi8 = ymax8-ymin8;  //length of y
+//note: parseInt because coils are denominated in 1e-9:1 ratio
+    //note: this means charting relative, like binance, not gecko..
+    //create first point
+    var point8atO = svg8.createSVGPoint();
+    point8atO.x=0;
+    point8atO.y=yf8;
+   	polyline8.points.appendItem(point8atO);
+    //now find each pair of x/y
+    for(let qqq=0;qqq<gE.length;qqq++)
+    {
+        var point8 = svg8.createSVGPoint();
+        point8.x = xf8 * (gE[qqq][0]-xmin3)/xi8;
+        point8.y = yf8 * (1 - gE[qqq][1]/ymax8);
+    	polyline8.points.appendItem(point8);
+    }
+    //create last point
+    var point8atN = svg8.createSVGPoint();
+    point8atN.x=xf8;
+    point8atN.y=yf8;
+   	polyline8.points.appendItem(point8atN);
+}
 er.onload = function()
 {
     var ed=JSON.parse(this.response);
@@ -378,12 +669,28 @@ er.onload = function()
     chart1(ed.result);
     chart2(ed.result);
 }
+ug.onload = function()
+{
+    var ud=JSON.parse(this.response);
+    chart3(ud.prices);
+    chart5(ud.market_caps);
+    chart7(ud.total_volumes);
+}
+eg.onload = function()
+{
+    var ed=JSON.parse(this.response);
+    chart4(ed.prices);
+    chart6(ed.market_caps);
+    chart8(ed.total_volumes);
+}
+eg.send();
+ug.send();
 er.send();
 </script>
 <hr>
 <hr><hr><hr><hr>
 <h3>Thank Ü for ya time!</h3>
-<h5>> sbecial thanks to dear <a href="https://t.me/CoilCrypto">ghost#8941</a> for the motivation!</h5>
+<h5>> sbecial thanks to dear <a href="https://t.me/CoilCrypto">Ghost#8941</a> for the motivation!</h5>
 <h6>> 2x sbecial thanks to - The EtherScan!</h6>
 <div align=center><font size="1">$ETHer :: 0xD0f79B71A8ffB7f70392630f8BFc900fcA27af42</font></div>
 <h5>Do visit <b><a href="https://9xo.github.io/R/teb">9xo/R</a></b> to help me with kind♥</h5>
