@@ -196,11 +196,11 @@ table td:hover {
 <hr>
 <h4>Historical Supply Curve</h4>
 <svg id="svg01" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:50%;width:100%">
-<linearGradient id="mg1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.5"></stop>
-      <stop offset="100%" style="stop-color:rgb(0,255,127);stop-opacity:1"></stop>
-    </linearGradient>
-<polyline id="polyline-id" points="" style="fill:url(#mg1);stroke:none;stroke-width:1"></polyline>
+<linearGradient id="mg1" y1="0%" x1="50%" x2="50%" y2="100%">
+<stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+<stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="100%"></stop>
+</linearGradient>
+<polyline id="polyline-id" points="" style="fill:url(#mg1);stroke:#00e6a8;stroke-width:0.1"></polyline>
 </svg>
 <hr>
 <h3>Recent history of basing</h3>
@@ -373,11 +373,10 @@ er.send();
 <h4>Historical Supply Change (in %)</h4>
 <svg id="svg02" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg2" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:1"></stop>
-      <stop offset="50%" style="stop-color:rgb(0,255,127);stop-opacity:0.5"></stop>
-      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:0.25"></stop>
+      <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
+      <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
     </linearGradient>
-<polyline id="polyline-id2" points="" style="fill:url(#mg2);stroke:gold;stroke-width:0.1"></polyline>
+<polyline id="polyline-id2" style="fill:url(#mg2);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
 </svg>
 <hr><hr><hr><hr>
 <h3>Thank Ü for ya time!</h3>
