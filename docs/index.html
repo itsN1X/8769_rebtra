@@ -50,68 +50,92 @@ $COIL:
 <meta name="description" content="Coil Crypto ERC20 Rebase and Debase log and tracking. | E.X. (I) Technologies © itsN1X">
 <meta name="keywords" content="Coil crypto, Rebase , Debase , Spring , Recoil , Expand , Inflate , Deflate , itsN1X , Portfolio , Tracker , Delta , Coil , ERC20 , Ethereum , API , Live , Historical , Data">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+  <h1 class="footr">✨ (((rebtra : v0.0.204)))</h1><hr>
+
+
 <!--This stylesheet may be under a copyright by itsN1X.
 © 2020 itsN1X | E. X. Information Technologies | 9Xo-->
-<style>body {
- margin:0;
- padding:0;
- background:#151515;
- color:#eaeaea;
- font-size:16px;
- line-height:1.5;
- font-family:Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace
+<style>
+*, *:after, *:before {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
 }
-.hh1,.hh2 {
- text-shadow:0 5px 5px rgb(1,222,222);
- }
-h1,h2,h3,h4,h5,h6 {
- margin:0 0 20px;
+.parent {
+  width: 100%;
+  padding: 20px;
+  color: #dad;
+  background-image: linear-gradient(to bottom, rgba(0,55,55,1), rgba(0,99,99,1));
 }
-li {
- line-height:1.4
+.column {
+  padding: 10px;
+}
+.main {
+  background: #222;
+  width: 100%;
+}
+.sidebar {
+  background: #272727;
+  width: 100%;
+}
+.col-q2 {
+  background:   #262626;
+  margin: 10px;
+  width: auto;
+  height: auto;
+  padding: 2vw;
 }
 
-h1,h2,h3,h4,h5,h6 {
- font-weight:normal;
- font-family:Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
- color:#b5e853;
- letter-spacing:-0.03em;
- text-shadow:0 1px 1px rgba(0,0,0,0.1),0 0 5px rgba(181,232,83,0.1),0 0 10px rgba(181,232,83,0.1);
- text-align:center;
+.itsN1X
+{
+ right:-40vw;
+ top:-24vw;
+ position: relative;
+ color: #021;
+ text-shadow: 0 5px 15px rgb(0,255,255);
+ font-size:  3vh;
+ padding:  0 0 0 2vw;
+ transform: translateX(100vw) rotate(-90deg);
+ -webkit-transform: rotate(-90deg);
+ -moz-transform: rotate(-90deg);
+ -ms-transform: rotate(-90deg);
+ -o-transform: rotate(-90deg);
+ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+
 }
-pre {
- background:rgba(0,0,0,0.9);
- border:1px solid rgba(255,255,255,0.15);
- padding:10px;
- font-size:16px;
- color:#b5e853;
- border-radius:2px;
- word-wrap:normal;
- overflow:auto;
- overflow-y:hidden
+@media only screen and (min-width: 641px){
+  .parent {
+    float: left;
+//    display: flex;
+  }
+  .column {
+    float: left;
+  //  flex: 1;
+  }
+  .col-q2 {
+    float: left;
+    //flex: 1;
+  }
 }
-code.highlighter-rouge {
- background:rgba(0,0,0,0.9);
- border:1px solid rgba(255,255,255,0.15);
- padding:0px 3px;
- margin:0px -3px;
- color:#39f;
- border-radius:2px
+
+body {
+background: rgba(0,55,55,1);
 }
-hr {
- height:0;
- border:0;
- border-bottom:1px dashed #b5e853;
- color:#b5e853
+
+.footr {
+ color: #021;
+ text-shadow: 0 5px 15px rgb(0,255,255);
+ font-size:  5vh;
+ padding:  0 0 0 2vw
 }
-a {
- color:#63c0f5;
- text-shadow:0 0 5px rgba(104,182,255,0.5);
- text-decoration:none;
+h2,h4 {
+color:#aaa;
 }
-* {
- box-sizing:border-box
+h1 {
+color:#321;
 }
+
 ::selection {
  background:purple
 }
@@ -119,91 +143,194 @@ a {
  background:purple;
  color:gold
 }
-table {
+#ct {
  border-collapse:collapse;
- margin:8% 0 0 25vw;
  width:50vw;
  border:1px solid #ddd;
- font-size:18px
+ font-size:18px;
+ color:#bae;
 }
-table th {
+#ct th {
  text-align:center;
  padding:12px;
  font-size:18px
 }
-table td {
+#ct td {
  padding:12px;
  font-size:12px
 }
-table tr {
+#ct tr {
  border-bottom:1px solid #ddd;
  background-color:#020;
 }
-table tr:hover {
+#ct tr:hover {
  background-color:#050;
 }
-table td:hover {
+#ct td:hover {
  background-color:#070;
 }
-.zh {
+#ct .zh {
  padding:12px;
  font-size:12px
 }
-.zh {
+#ct .zh {
  border-bottom:1px solid #ddd;
  background-color:#200;
 }
-.zh:hover {
+#ct .zh:hover {
  background-color:#700;
 }
-.zd:hover {
+#ct .zd:hover {
  background-color:#900;
 }
-.zf {
+#ct .zf {
  background-color:#303;
 }
-.zf:hover {
+#ct .zf:hover {
  background-color:#707;
 }
-.ze:hover {
+#ct .ze:hover {
  background-color:#909;
 }
-#th td {
+#ct .th td {
  padding:12px;
  font-size:12px
 }
-#th tr {
+#ct .th tr {
  border-bottom:1px solid #ddd;
  background-color:#002;
 }
-#th td:hover {
+#ct .th td:hover {
  background-color:#007;
 }
 </style>
-<h1 class="hh1">rebtra</h1>
-<h2 class="hh2">Rebase & Debase Tracer Tracker<BR><sup>(CoilCrypto.com)</sup></h2>
-<h4></h4>
-<h6>Made with ++❤; by <a href="https://github.com/itsN1X">itsN1X</a></h6>
-<hr>
-<h4>Next Monetary Policy revision ☟</h4>
-<div align="center" id="nd"></div>
-<h5><i>(In about <span id="nt"></span>.)</i></h5>
-<h3><b>Currently, <code class="language-plaintext highlighter-rouge"><span id="ts"></span></code></b> Coils exist.</h3>
-<h3>☟ Latest inflection</h3>
-<div align="center" id="ld"></div>
-<i><h5>(Around <span id="lt"></span> ago.)</i></h5>
-<hr>
-<hr>
-<h4>Historical Supply Curve</h4>
-<svg id="svg01" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:50%;width:100%">
+<div class="parent">
+  <div align="center" class="col-q2">Market Price<br>=<br>$
+  <font size="5"><span id="tcmpu">?.????</span></font>
+  </div>
+  <div align="center" class="col-q2">Uniswap Price<br>=<br>Ξ
+  <font size="5"><span id="tcpun">?.????</span></font>
+  </div>
+  <div align="center" class="col-q2">Oracle Price<br>=<br>
+  <font size="5"><span id="tcopu">$?.????</span></font>
+  </div>
+  <div align="center" class="col-q2">Price Target<br>=<br>
+  <font size="5"><span id="tctpu">$?.????</span></font>
+  </div>
+  <div align="center" class="col-q2">CPI<br>=<br>
+  <font size="5"><span id="tccpi">XXX.xxxx</span></font>
+  </div>
+  <div align="center" class="col-q2">Total bases<br>=<br>
+  <font size="5"><span id="tctbn">NNN,NNN</span></font>
+  </div>
+  <div align="center" class="col-q2">First base<br>
+  <font size="5"><span id="tcfba"></span> ago</font><br>
+  <font size="3"><span id="tcfbt">4:20 PM April 20, 1969</span></font>
+  </div>
+  <div align="center" class="col-q2">Age of Coil<br>
+  <font size="5"><span id="tcage">yY mM dD xH cM vS</span> old</font><br>Born 
+  <font size="3"><span id="tcaget">4:20 PM April 20, 1969</span></font>
+  </div>
+  <div align="center" class="col-q2">Last base<br>
+  <font size="5">Around <span id="lt"></span> ago</font><br>
+  <font size="3"><span id="ld">4:20 PM April 20, 1969</span></font>
+  </div>
+  <div align="center" class="col-q2">Last Change<br>
+  <font size="5"><span id="tclcp">69.6969</span>%</font><br>
+  <font size="3"><span id="tclcn">+/- 666,666.666</span></font>
+  </div>
+  <div align="center" class="col-q2">Next base<br>
+  <font size="5">In about <span id="nt"></span></font><br>
+  <font size="3"><span id="nd">4:20 PM April 20, 1969</span></font>
+  </div>
+  <div align="center" class="col-q2">Next Change<br>
+  <font size="5"><span id="tcncp">12.1234</span>%</font><br>
+  <font size="3"><span id="tcncn">+/- 666,666.666</span></font>
+  </div>
+  <div align="center" class="col-q2">Circulation<br>=<br>
+  <font size="5"><span id="tcccs">CCC,CCC,CCC.cc</span></font>
+  </div>
+  <div align="center" class="col-q2">Total Supply<br>=<br>
+  <font size="5"><span id="ts">TTT,TTT,TTT,tttt</span></font>
+  </div>
+  <div align="center" class="col-q2">USD Market Capitalization<br>=<br>$
+  <font size="5"><span id="tcmcu">111,222,333,444</span></font>
+  </div>
+  <div align="center" class="col-q2">ETH Market Capitalization<br>=<br>Ξ
+  <font size="5"><span id="tcmce">222,222,222,222 ETH</span></font>
+  </div>
+  <div align="center" class="col-q2">24h USD Volume<br>=<br>$
+  <font size="5"><span id="tcvu">222,222,222,222</span></font>
+  </div>
+  <div align="center" class="col-q2">24h ETH Volume<br>=<br>Ξ
+  <font size="5"><span id="tcve">222,222,222,222</span></font>
+  </div>
+  
+  
+<table align="center" width="100%">
+<tr style="color:#eee">
+<td align="center">
+  Track bases<br>
+  <button id="thb" onclick="fn02()" width="auto">View history</button>
+</td>
+<td align="center">
+  <label for="cars">View a chart</label><br>
+<select name="chartdecoil" id="ccid" onchange="mf01(this.value)">
+  <optgroup label="Supply">
+    <option value="supabs">Absolute Coils</option>
+    <option value="suprel">Relative (%)</option>
+  </optgroup>
+  <optgroup label="Price">
+    <option value="prusd">U.S.D. ($)</option>
+    <option value="preth">Ether (ETH)</option>
+  </optgroup>
+  <optgroup label="Market Capitalization">
+    <option value="mcusd">U.S.D. ($)</option>
+    <option value="mceth">Ether (ETH)</option>
+  </optgroup>
+  <optgroup label="Volumes">
+    <option value="volusd">U.S.D. ($)</option>
+    <option value="voleth">Ether (ETH)</option>
+  </optgroup>
+</select> 
+</td>
+</tr>
+</table>
+</div>
+
+
+
+
+
+
+<div class="parent" id="logt">
+  <div class="column main">
+<h3 align="center">Recent history of basing</h3>
+<table id="ct" align="center">
+<thead class="th">
+<td>№</td>
+<td>Time</td>
+<td>Change</td>
+<td>Circulation</td>
+</thead>
+</table>
+<h5 align="center">(<font color="#0f0">Rebase</font> ║ <font color="#f0f">Neutral</font> ║ <font color="#f00">Debase</font>)</h5>
+  </div>
+</div>
+  
+<div class="parent" id="c1">
+  <div class="column main">
+<h4 align="center"> Supply Curve</h4>
+<svg id="svg01" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg1" y1="0%" x1="50%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="100%"></stop>
 </linearGradient>
 <polyline id="polyline-id" points="" style="fill:url(#mg1);stroke:#00e6a8;stroke-width:0.1"></polyline>
-</svg>
-<hr>
-<h4>Historical Supply Change (in %)</h4>
+</svg></div>
+</div>
+<div class="parent" id="c2">
+   <div class="column sidebar"><h4 align="center"> Supply Change (in %)</h4>
 <svg id="svg02" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg2" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
@@ -211,8 +338,10 @@ table td:hover {
 </linearGradient>
 <polyline id="polyline-id2" style="fill:url(#mg2);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
 </svg>
-<hr>
-<h4>Historical Price (in ETH)</h4>
+</div>
+</div>
+<div class="parent" id="c3">
+  <div class="column main"><h4 align="center"> Price (in ETH)</h4>
 <svg id="svg03" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg3" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
@@ -220,17 +349,20 @@ table td:hover {
 </linearGradient>
 <polyline id="polyline-id3" style="fill:url(#mg3);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
 </svg>
-<hr>
-<h4>Historical Price (in $)</h4>
+</div>
+</div>
+<div class="parent" id="c4">
+   <div class="column sidebar"><h4 align="center"> Price (in $)</h4>
 <svg id="svg04" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg4" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
 </linearGradient>
 <polyline id="polyline-id4" style="fill:url(#mg4);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
-</svg>
-<hr>
-<h4>Historical Market Capitalization (in ETH)</h4>
+</svg></div>
+</div>
+<div class="parent" id="c5">
+  <div class="column main"><h4 align="center"> Market Capitalization (in ETH)</h4>
 <svg id="svg05" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg5" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
@@ -238,17 +370,21 @@ table td:hover {
 </linearGradient>
 <polyline id="polyline-id5" style="fill:url(#mg5);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
 </svg>
-<hr>
-<h4>Historical Market Capitalization (in $)</h4>
-<svg id="svg06" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+</div>
+</div>
+<div class="parent" id="c6">
+   <div class="column sidebar"><h4 align="center"> Market Capitalization (in $)</h4>
+   <svg id="svg06" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg6" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
 </linearGradient>
 <polyline id="polyline-id6" style="fill:url(#mg6);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
 </svg>
-<hr>
-<h4>Historical Trade Volumes (in ETH)</h4>
+</div>
+</div>
+<div class="parent" id="c7">
+  <div class="column main"><h4 align="center"> Trade Volumes (in ETH)</h4>
 <svg id="svg07" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg7" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
@@ -256,27 +392,24 @@ table td:hover {
 </linearGradient>
 <polyline id="polyline-id7" style="fill:url(#mg7);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
 </svg>
-<hr>
-<h4>Historical Trade Volumes (in $)</h4>
+</div>
+</div>
+<div class="parent" id="c8">
+   <div class="column sidebar"><h4 align="center"> Trade Volumes (in $)</h4>
 <svg id="svg08" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
 <linearGradient id="mg8" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
 </linearGradient>
 <polyline id="polyline-id8" style="fill:url(#mg8);stroke:#00e6a8;stroke-width:0.1" points=""></polyline>
-</svg>
-<hr>
-<h3>Recent history of basing</h3>
-<table id="ct">
-<thead id="th">
-<td>№</td>
-<td>Time</td>
-<td>Change</td>
-<td>Circulation</td>
-</thead>
-</table>
-<h5>(<font color="#0f0">Rebase</font> ║ <font color="#f0f">Neutral</font> ║ <font color="#f00">Debase</font>)</h5>
-<br>
+</svg></div>
+</div>
+✨
+<h1 class="footr">rebtra <i>v0.0.204</i></h1><h2 class="footr">CoilCrypto.com<hr>
+<!--9Xo is a public unit of E.X. (I) Technologies-->
+<div align="right"><font size="3">@ 
+<i><a style="color:gold;background-color:purple;text-decoration-line: none;" href="https://github.com/itsN1X">i t s <b>N1</b>X # 2 5 5 1</a></i></font></div>
+</h2>
 <script>
 ND=document.getElementById("nd");
 NT=document.getElementById("nt");
@@ -336,10 +469,32 @@ NT.textContent=op.getUTCHours()+"h "+op.getUTCMinutes()+"m "+op.getUTCSeconds()+
 TS.textContent=(Math.trunc(parseInt(xD[xD.length-1].data)/1e9)).toLocaleString();
 LD.textContent=new Date(tt);
 LT.textContent=oo.getUTCHours()+"h "+oo.getUTCMinutes()+"m "+oo.getUTCSeconds()+"s";
+    //count total bases
+	var TCTBN = document.getElementById('tctbn');
+	TCTBN.textContent = parseInt(xD[xD.length-1]["topics"][1]);
+	//first base local time
+	var TCFBT = document.getElementById('tcfbt');
+	var TCFBA = document.getElementById('tcfba');
+	//Elapsed tbf::time
+	tbfbtime = new Date(Date.now()-parseInt(xD[0]["timeStamp"])*1e3);
+	TCFBA.textContent = (tbfbtime.getUTCFullYear()-1970)+"Y "+tbfbtime.getUTCMonth()+"M "+(tbfbtime.getUTCDate()-1)+"D "+tbfbtime.getUTCHours()+"h "+tbfbtime.getUTCMinutes()+"m "+tbfbtime.getUTCSeconds()+"s";
+	//tfb::time
+	TCFBT.textContent = new Date(parseInt(xD[0]["timeStamp"])*1e3);
+	//Age of Coil
+	tcaged = new Date(Date.now()-parseInt(0x5f39b034)*1e3);
+	//Not to be confused with elapsed time since first base
+	var TCAGET = document.getElementById('tcaget');
+	TCAGET.textContent = new Date(parseInt(0x5f39b034)*1e3);
+	//Age of Contract :: ERC20 Coil
+	//Created at time=0x5f39b034 in block=0xa2de63
+	var TCAGE = document.getElementById('tcage');
+	TCAGE.textContent = (tcaged.getUTCFullYear()-1970)+"Y "+tcaged.getUTCMonth()+"M "+(tcaged.getUTCDate()-1)+"D "+tcaged.getUTCHours()+"h "+tcaged.getUTCMinutes()+"m "+tcaged.getUTCSeconds()+"s";
 }
 function chart1(cD)
 {
 //for the Supply chart
+	var TCLCN = document.getElementById('tclcn');
+	TCLCN.textContent = (parseInt(cD[cD.length-1]["data"])-parseInt(cD[cD.length-1-1]["data"]))/1e9;
 	var svg1 = document.getElementById('svg01');
 	var polyline1= document.getElementById('polyline-id');
 	var xf1 = 100; //x-frame-size
@@ -400,6 +555,9 @@ function chart2(cD)
         qset=[qdt,qdc];
         qlist.push(qset);
     }
+    //get base change (%age)
+	var TCLCP = document.getElementById('tclcp');
+	TCLCP.textContent = qset[1];
     ymin2 = Math.min.apply(Math, qlist.map(function(o) { 
                     return parseFloat(o[1]);  
                 }));   //minimum coils
@@ -428,9 +586,15 @@ function chart2(cD)
     point2atN.y=yf2;
     polyline2.points.appendItem(point2atN);
 }
+function mfcs(smh) {
+	var TCCCS = document.getElementById('tcccs');
+	TCCCS.textContent = Math.trunc(smh.market_caps[smh.market_caps.length-1][1]/smh.prices[smh.prices.length-1][1]).toLocaleString();
+}
 function chart3(gU)
 {
 //for the USD price chart
+	var TCMPU = document.getElementById('tcmpu');
+	TCMPU.textContent = gU[gU.length-1][1];
 	var svg3 = document.getElementById('svg03');
 	var polyline3= document.getElementById('polyline-id3');
 	var xf3 = 100; //x-frame-size
@@ -470,6 +634,8 @@ function chart3(gU)
 function chart4(gE)
 {
 //for the ETH Price chart
+	var TCPUN = document.getElementById('tcpun');
+	TCPUN.textContent = gE[gE.length-1][1];
 	var svg4 = document.getElementById('svg04');
 	var polyline4= document.getElementById('polyline-id4');
 	var xf4 = 100; //x-frame-size
@@ -508,7 +674,9 @@ function chart4(gE)
 }
 function chart5(gU)
 {
-//for the Supply chart
+//for the USD MktCap chart
+	var TCMCU = document.getElementById('tcmcu');
+	TCMCU.textContent = gU[gU.length-1][1];
 	var svg5 = document.getElementById('svg05');
 	var polyline5= document.getElementById('polyline-id5');
 	var xf5 = 100; //x-frame-size
@@ -547,7 +715,9 @@ function chart5(gU)
 }
 function chart6(gE)
 {
-//for the Supply chart
+//for the ETH MktCap chart
+	var TCMCE = document.getElementById('tcmce');
+	TCMCE.textContent = gE[gE.length-1][1];
 	var svg6 = document.getElementById('svg06');
 	var polyline6= document.getElementById('polyline-id6');
 	var xf6 = 100; //x-frame-size
@@ -586,7 +756,9 @@ function chart6(gE)
 }
 function chart7(gU)
 {
-//for the Supply chart
+//for the USD Volume chart
+	var TCVU = document.getElementById('tcvu');
+	TCVU.textContent = gU[gU.length-1][1];
 	var svg7 = document.getElementById('svg07');
 	var polyline7= document.getElementById('polyline-id7');
 	var xf7 = 100; //x-frame-size
@@ -625,7 +797,9 @@ function chart7(gU)
 }
 function chart8(gE)
 {
-//for the Supply chart
+//for the ETH Volume chart
+	var TCVE = document.getElementById('tcve');
+	TCVE.textContent = gE[gE.length-1][1];
 	var svg8 = document.getElementById('svg08');
 	var polyline8= document.getElementById('polyline-id8');
 	var xf8 = 100; //x-frame-size
@@ -664,14 +838,15 @@ function chart8(gE)
 }
 er.onload = function()
 {
-    var ed=JSON.parse(this.response);
-    mt(ed.result);
-    chart1(ed.result);
-    chart2(ed.result);
+    var es=JSON.parse(this.response);
+    mt(es.result);
+    chart1(es.result);
+    chart2(es.result);
 }
 ug.onload = function()
 {
     var ud=JSON.parse(this.response);
+    mfcs(ud);
     chart3(ud.prices);
     chart5(ud.market_caps);
     chart7(ud.total_volumes);
@@ -686,15 +861,148 @@ eg.onload = function()
 eg.send();
 ug.send();
 er.send();
+
+
+  var ss0 = document.getElementById("logt");
+  var ss1 = document.getElementById("c1");
+  var ss2 = document.getElementById("c2");
+  var ss3 = document.getElementById("c3");
+  var ss4 = document.getElementById("c4");
+  var ss5 = document.getElementById("c5");
+  var ss6 = document.getElementById("c6");
+  var ss7 = document.getElementById("c7");
+  var ss8 = document.getElementById("c8");
+  
+
+ss0.style.display="none";
+ss1.style.display="block";
+ss2.style.display="none";
+ss3.style.display="none";
+ss4.style.display="none";
+ss5.style.display="none";
+ss6.style.display="none";
+ss7.style.display="none";
+ss8.style.display="none";
+
+function f1() {
+    ss0.style.display="none";
+    ss1.style.display="block";
+    ss2.style.display="none";
+    ss3.style.display="none";
+    ss4.style.display="none";
+    ss5.style.display="none";
+    ss6.style.display="none";
+    ss7.style.display="none";
+    ss8.style.display="none";
+} 
+  
+function f2() {
+    ss0.style.display="none";
+    ss1.style.display="none";
+    ss2.style.display="block";
+    ss3.style.display="none";
+    ss4.style.display="none";
+    ss5.style.display="none";
+    ss6.style.display="none";
+    ss7.style.display="none";
+    ss8.style.display="none";
+} 
+  
+function f3() {
+    ss0.style.display="none";
+    ss1.style.display="none";
+    ss2.style.display="none";
+    ss3.style.display="block";
+    ss4.style.display="none";
+    ss5.style.display="none";
+    ss6.style.display="none";
+    ss7.style.display="none";
+    ss8.style.display="none";
+} 
+  
+function f4() {
+    ss0.style.display="none";
+    ss1.style.display="none";
+    ss2.style.display="none";
+    ss3.style.display="none";
+    ss4.style.display="block";
+    ss5.style.display="none";
+    ss6.style.display="none";
+    ss7.style.display="none";
+    ss8.style.display="none";
+} 
+  
+function f5() {
+    ss0.style.display="none";
+    ss1.style.display="none";
+    ss2.style.display="none";
+    ss3.style.display="none";
+    ss4.style.display="none";
+    ss5.style.display="block";
+    ss6.style.display="none";
+    ss7.style.display="none";
+    ss8.style.display="none";
+} 
+  
+function f6() {
+    ss0.style.display="none";
+    ss1.style.display="none";
+    ss2.style.display="none";
+    ss3.style.display="none";
+    ss4.style.display="none";
+    ss5.style.display="none";
+    ss6.style.display="block";
+    ss7.style.display="none";
+    ss8.style.display="none";
+} 
+  
+function f7() {
+    ss0.style.display="none";
+    ss1.style.display="none";
+    ss2.style.display="none";
+    ss3.style.display="none";
+    ss4.style.display="none";
+    ss5.style.display="none";
+    ss6.style.display="none";
+    ss7.style.display="block";
+    ss8.style.display="none";
+} 
+  
+function f8() {
+    ss0.style.display="none";
+    ss1.style.display="none";
+    ss2.style.display="none";
+    ss3.style.display="none";
+    ss4.style.display="none";
+    ss5.style.display="none";
+    ss6.style.display="none";
+    ss7.style.display="none";
+    ss8.style.display="block";
+} 
+
+
+function mf01(vaa) {
+if (vaa=="supabs") {f1();}
+else if (vaa=="suprel"){ f2();}
+else if (vaa=="prusd") {f3();}
+else if (vaa=="preth") {f4();}
+else if (vaa=="mcusd") {f5();}
+else if (vaa=="mceth") {f6();}
+else if (vaa=="volusd") {f7();}
+else if (vaa=="voleth") {f8();}
+}
+
+function fn02() {
+    ss0.style.display="block";
+    ss1.style.display="none";
+    ss2.style.display="none";
+    ss3.style.display="none";
+    ss4.style.display="none";
+    ss5.style.display="none";
+    ss6.style.display="none";
+    ss7.style.display="none";
+    ss8.style.display="none";
+}
 </script>
-<hr>
-<hr><hr><hr><hr>
-<h3>Thank Ü for ya time!</h3>
-<h5>> sbecial thanks to dear <a href="https://t.me/CoilCrypto">Ghost#8941</a> for the motivation!</h5>
-<h6>> 2x sbecial thanks to - The EtherScan!</h6>
-<div align=center><font size="1">$ETHer :: 0xD0f79B71A8ffB7f70392630f8BFc900fcA27af42</font></div>
-<h5>Do visit <b><a href="https://9xo.github.io/R/teb">9xo/R</a></b> to help me with kind♥</h5>
-<hr><hr><hr><hr>
-<i>No <b>C</b>ookies.<br>No <b>I</b>mages.<br>No <b>A</b>dvertisements.<br>#:#0xD9B4BEF9<br>
-<!--9Xo is a public unit of E.X. (I) Technologies-->@its<b>N1</b>X</i>#2551
+</body>
 </html>
