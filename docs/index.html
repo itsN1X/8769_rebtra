@@ -235,14 +235,14 @@ color:#321;
   <div align="center" class="col-q2">Uniswap Price<br>=<br>Ξ
   <font size="5"><span id="tcpun">?.????</span></font>
   </div>
-  <div align="center" class="col-q2">Oracle Price<br>=<br>
-  <font size="5"><span id="tcopu">$?.????</span></font>
+  <div align="center" class="col-q2">Oracle Price<br>=<br>$
+  <font size="5"><span id="tcopu">?.????</span></font>
   </div>
-  <div align="center" class="col-q2">Price Target<br>=<br>
-  <font size="5"><span id="tctpu">$?.????</span></font>
+  <div align="center" class="col-q2">Price Target<br>=<br>$
+  <font size="5"><span id="tctpu">1.0</span></font>
   </div>
   <div align="center" class="col-q2">CPI<br>=<br>
-  <font size="5"><span id="tccpi">XXX.xxxx</span></font>
+  <font size="5"><span id="tccpi">100%</span></font>
   </div>
   <div align="center" class="col-q2">Total bases<br>=<br>
   <font size="5"><span id="tctbn">NNN,NNN</span></font>
@@ -260,7 +260,7 @@ color:#321;
   <font size="3"><span id="ld">4:20 PM April 20, 1969</span></font>
   </div>
   <div align="center" class="col-q2">Last Change<br>
-  <font size="5"><span id="tclcp">69.6969</span>%</font><br>
+  <font size="5"><span id="tclcp">69.6969</span></font>%<br>
   <font size="3"><span id="tclcn">+/- 666,666.666</span></font>
   </div>
   <div align="center" class="col-q2">Next base<br>
@@ -268,8 +268,8 @@ color:#321;
   <font size="3"><span id="nd">4:20 PM April 20, 1969</span></font>
   </div>
   <div align="center" class="col-q2">Next Change<br>
-  <font size="5"><span id="tcncp">12.1234</span>%</font><br>
-  <font size="3"><span id="tcncn">+/- 666,666.666</span></font>
+  <font size="5"><span id="tcncp">12.1234</span></font>%<br>
+  <font size="3"><span id="tcncn">(estimated)</span></font>
   </div>
   <div align="center" class="col-q2">Circulation<br>=<br>
   <font size="5"><span id="tcccs">CCC,CCC,CCC.cc</span></font>
@@ -615,6 +615,21 @@ function chart3(gU)
 //for the USD price chart
 	var TCMPU = document.getElementById('tcmpu');
 	TCMPU.textContent = gU[gU.length-1][1];
+	//TEMPORARY FIX
+	//ORACLE PRICE
+	//NEXT BASE (CHANGE) CALCULATION
+	var TCNCP = document.getElementById('tcncp');
+	let TargetPrice = 1.0;
+	OraclePrice = gU[gU.length-1][1];
+	if(OraclePrice/TargetPrice>1.05 || OraclePrice/TargetPrice<1.05)
+	expected = 10*(OraclePrice/TargetPrice-1);
+	TCNCP.textContent = expected;
+//	var TCNCN = document.getElementById('tcncn');
+//	TCNCN.textContent = totcoi*0.1*(OraclePrice/TargetPrice-1);
+	//lol
+	var TCOPU = document.getElementById('tcopu');
+	TCOPU.textContent = gU[gU.length-1][1];
+	//mainstuff
 	var svg3 = document.getElementById('svg03');
 	var polyline3= document.getElementById('polyline-id3');
 	chaa(gU,svg3,polyline3);
@@ -702,12 +717,36 @@ function chaa(gE,svg8,polyline8)
     point8atN.y=yf8;
    	polyline8.points.appendItem(point8atN);
 }
+/*RIP
+function mf04(totcoi,pricoi) {
+    //lets see,huh
+    
+	//TEMPORARY FIX
+	//NEXT BASE (CHANGE) CALCULATION
+	let TargetPrice = 1;
+	OraclePrice = pricoi;
+	var TCNCP = document.getElementById('tcncp');
+	TCNCP.textContent = 10*(OraclePrice/TargetPrice-1);
+	var TCNCN = document.getElementById('tcncn');
+	TCNCN.textContent = totcoi*0.1*(OraclePrice/TargetPrice-1);
+}
+*/
 er.onload = function()
 {
     var es=JSON.parse(this.response);
     mt(es.result);
     chart1(es.result);
     chart2(es.result);
+    //some trip jajajaja
+/*
+    ug.onload = function()
+    {
+        a1 = JSON.parse(this.response);
+        lastprice = a1.prices[a1.prices.length-1][1];
+        totalcoil = 1/1e9*parseInt(es.result[es.result.length-1].data);
+        setTimeout(mf04(totalcoil.lastprice),1000);
+    }
+*/
 }
 ug.onload = function()
 {
