@@ -90,6 +90,8 @@ $COIL:
   height: auto;
   padding: 2vw;
   color: #deb;
+  border-radius: 20px;
+  box-shadow: -1px 2px 1px 1px rgba(0,222,222,1);
   }
 .col-q3 {
   background:   #262626;
@@ -98,6 +100,8 @@ $COIL:
   height: auto;
   padding: 2vw;
   color: #deb;
+  border-radius: 20px;
+  box-shadow: -1px 2px 1px 1px rgba(222,0,222,1);
 }
 @media only screen and (min-width: 641px){
   .parent {
@@ -624,10 +628,6 @@ function chart3(gU)
 	OraclePrice = gU[gU.length-1][1];
 	if(OraclePrice/TargetPrice>1.05 || OraclePrice/TargetPrice<1.05)
 	expected = 10*(OraclePrice/TargetPrice-1);
-	TCNCP.textContent = expected.toFixed(9);
-//	var TCNCN = document.getElementById('tcncn');
-//	TCNCN.textContent = totcoi*0.1*(OraclePrice/TargetPrice-1);
-	//lol
 	var TCOPU = document.getElementById('tcopu');
 	TCOPU.textContent = gU[gU.length-1][1].toFixed(9);
 	//mainstuff
@@ -718,36 +718,12 @@ function chaa(gE,svg8,polyline8)
     point8atN.y=yf8;
    	polyline8.points.appendItem(point8atN);
 }
-/*RIP
-function mf04(totcoi,pricoi) {
-    //lets see,huh
-    
-	//TEMPORARY FIX
-	//NEXT BASE (CHANGE) CALCULATION
-	let TargetPrice = 1;
-	OraclePrice = pricoi;
-	var TCNCP = document.getElementById('tcncp');
-	TCNCP.textContent = 10*(OraclePrice/TargetPrice-1);
-	var TCNCN = document.getElementById('tcncn');
-	TCNCN.textContent = totcoi*0.1*(OraclePrice/TargetPrice-1);
-}
-*/
 er.onload = function()
 {
     var es=JSON.parse(this.response);
     mt(es.result);
     chart1(es.result);
     chart2(es.result);
-    //some trip jajajaja
-/*
-    ug.onload = function()
-    {
-        a1 = JSON.parse(this.response);
-        lastprice = a1.prices[a1.prices.length-1][1];
-        totalcoil = 1/1e9*parseInt(es.result[es.result.length-1].data);
-        setTimeout(mf04(totalcoil.lastprice),1000);
-    }
-*/
 }
 ug.onload = function()
 {
