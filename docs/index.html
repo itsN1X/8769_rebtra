@@ -51,7 +51,8 @@ $COIL:
 <meta name="keywords" content="Coil crypto, Rebase , Debase , Spring , Recoil , Expand , Inflate , Deflate , itsN1X , Portfolio , Tracker , Delta , Coil , ERC20 , Ethereum , API , Live , Historical , Data">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
-  <h1 class="footr">✨ (((rebtra : v0.0.208)))</h1><hr>
+  <h1 class="footr">✨ (((rebtra : v0.0.208)))</h1><br>
+  <h3 class="navi"><a href="https://CoilCrypto.com">CoilCrypto.com</a> <a href="https://spring.CoilCrypto.com">Spring</a> <a href="#io">Charts</a> <a href="#io">History</a> </h3><br>
 <!--This stylesheet is under a copyright by itsN1X.
 © 2020 itsN1X | E. X. Information Technologies | 9Xo.github.io-->
 <style>*, *:after, *:before {
@@ -76,15 +77,15 @@ $COIL:
   padding: 10px;
 }
 .main {
-  background: #222;
+  background: ;//#222;
   width: 100%;
 }
 .sidebar {
-  background: #272727;
+  background: ;//#272727;
   width: 100%;
 }
 .col-q2 {
-  background:   #262626;
+  background:   ;//#262626;
   margin: 10px;
   width: auto;
   height: auto;
@@ -94,14 +95,14 @@ $COIL:
   box-shadow: -1px 2px 1px 1px rgba(0,222,222,1);
   }
 .col-q3 {
-  background:   #262626;
+  background:   ;//#262626;
   margin: 10px;
   width: auto;
   height: auto;
   padding: 2vw;
   color: #deb;
   border-radius: 20px;
-  box-shadow: -1px 2px 1px 1px rgba(222,0,222,1);
+  box-shadow: -1px 2px 1px 1px rgba(0,222,222,1);
 }
 @media only screen and (min-width: 641px){
   .parent {
@@ -166,6 +167,17 @@ background: rgba(0,55,55,1);
  text-shadow: 0 5px 15px rgb(0,255,255);
  font-size:  5vh;
  padding:  0 0 0 2vw
+}
+.navi {
+ color: #021;
+ text-shadow: 0 5px 15px rgb(0,255,255);
+ font-size:  3vh;
+ padding:  0 0 0 2vw;
+ }
+.navi a{
+ text-decoration-line: none;
+ color: #011;
+ padding:2vw;
 }
 h2,h4 {
 color:#aaa;
@@ -627,7 +639,15 @@ function chart3(gU)
 	let TargetPrice = 1.0;
 	OraclePrice = gU[gU.length-1][1];
 	if(OraclePrice/TargetPrice>1.05 || OraclePrice/TargetPrice<1.05)
-	expected = 10*(OraclePrice/TargetPrice-1);
+	{
+        expected = 10*(OraclePrice/TargetPrice-1);
+        TCNCP.textContent = expected.toFixed(9);
+    }
+    else
+    {
+        expected = "No change: Price in Neutral Zone!";
+        TCNCP.textContent = expected;
+    }
 	var TCOPU = document.getElementById('tcopu');
 	TCOPU.textContent = gU[gU.length-1][1].toFixed(9);
 	//mainstuff
