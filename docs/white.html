@@ -344,10 +344,10 @@ color:#321;
 <h3 align="center">Recent history of basing</h3>
 <table id="ct" align="center">
 <thead class="th">
-<td>№</td>
-<td>Time</td>
-<td>Change</td>
-<td>Circulation</td>
+<td onclick="sortTable(0)">№</td>
+<td onclick="sortTable(0)">Time</td>
+<td onclick="sortTable(2)">Change</td>
+<td onclick="sortTable(3)">Circulation</td>
 </thead>
 </table>
 <br>
@@ -736,6 +736,42 @@ function chaa(gE,svg8,polyline8)
     point8atN.x=xf8;
     point8atN.y=yf8;
    	polyline8.points.appendItem(point8atN);
+}
+function sortTable(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("ct");
+  z = true;
+  b = "a"; 
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 1; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].innerHTML).replace(/,|%/g,'');
+      y = (r[i + 1].getElementsByTagName("TD")[n].innerHTML).replace(/,|%/g,'');
+      if (b == "a") {
+        if (Number(x) > Number(y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if (Number(x) < Number(y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;      
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
 }
 er.onload = function()
 {
