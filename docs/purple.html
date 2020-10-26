@@ -50,6 +50,7 @@ $COIL:
 <meta name="description" content="Coil Crypto ERC20 Rebase and Debase log and tracking. | E.X. (I) Technologies © itsN1X">
 <meta name="keywords" content="Coil crypto, Rebase , Debase , Spring , Recoil , Expand , Inflate , Deflate , itsN1X , Portfolio , Tracker , Delta , Coil , ERC20 , Ethereum , API , Live , Historical , Data">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="d3.v4.min.js"></script>
 <body>
   <h1 class="footr">✨ (((rebtra : v0.0.212)))</h1><br>
   <h3 class="navi"><a href="https://CoilCrypto.com">CoilCrypto.com</a> <a href="https://spring.CoilCrypto.com">Spring</a> <a href="#io">Charts</a> <a href="#io">History</a> </h3><br>
@@ -243,6 +244,50 @@ color:#321;
 #ct .th td:hover {
  background-color:#007;
 }
+
+
+
+.axis {
+	font: 10px sans-serif;
+}
+
+.axis path,
+.axis text,
+.axis line {
+  fill: none;
+  stroke: #1aa;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: #00e6a8;
+  stroke-width: 0.1vw;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle,
+.focus text {
+  fill: none;
+  stroke: #0ea;
+  stroke-width: 2px;
+}
+
+.hover-line {
+  stroke: #0ff;
+  stroke-width: 2px;
+  stroke-dasharray: 3,3;
+}
+
+svg {color:red;
+  background:linear-gradient(to bottom, rgba(0,55,55,1), rgba(0,99,99,1))}
+
+
 </style>
 <div class="parent">
   <div align="center" class="col-q2">Market Price<br>=<br>$
@@ -378,7 +423,7 @@ color:#321;
 </div>
 <div class="parent" id="c3">
   <div class="column main"><h4 align="center">Price in USD ($)</h4>
-<svg id="svg03" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<svg id="svg03">
 <linearGradient id="mg3" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
@@ -389,7 +434,7 @@ color:#321;
 </div>
 <div class="parent" id="c4">
    <div class="column sidebar"><h4 align="center">Price in ETH (Ξ)</h4>
-<svg id="svg04" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<svg id="svg04">
 <linearGradient id="mg4" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
@@ -399,7 +444,7 @@ color:#321;
 </div>
 <div class="parent" id="c5">
   <div class="column main"><h4 align="center">USD Market Capitalization ($)</h4>
-<svg id="svg05" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<svg id="svg05">
 <linearGradient id="mg5" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
@@ -410,7 +455,7 @@ color:#321;
 </div>
 <div class="parent" id="c6">
    <div class="column sidebar"><h4 align="center">ETH Market Capitalization (Ξ)</h4>
-   <svg id="svg06" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+   <svg id="svg06">
 <linearGradient id="mg6" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
@@ -421,7 +466,7 @@ color:#321;
 </div>
 <div class="parent" id="c7">
   <div class="column main"><h4 align="center">USD Trade Volumes ($)</h4>
-<svg id="svg07" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<svg id="svg07">
 <linearGradient id="mg7" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
@@ -432,7 +477,7 @@ color:#321;
 </div>
 <div class="parent" id="c8">
    <div class="column sidebar"><h4 align="center">ETH Trade Volumes (Ξ)</h4>
-<svg id="svg08" viewBox="0 0 100 100" preserveAspectRatio="none" style="height:75%;width:100%">
+<svg id="svg08">
 <linearGradient id="mg8" x1="50%" y1="0%" x2="50%" y2="100%">
 <stop offset="0%" style="stop-color:rgb(0,255,255);stop-opacity:0.1"></stop>
 <stop style="stop-color:rgb(0,255,127);stop-opacity:0" offset="80%"></stop>
@@ -637,7 +682,7 @@ function chart3(gU)
 	var TCNCP = document.getElementById('tcncp');
 	let TargetPrice = 1.0;
 	OraclePrice = gU[gU.length-1][1];
-    if((OraclePrice/TargetPrice>1.05) && (OraclePrice/TargetPrice<1.05))
+	if((OraclePrice/TargetPrice>1.05) && (OraclePrice/TargetPrice<1.05))
 	{
         expected = 10*(OraclePrice/TargetPrice-1);
         TCNCP.textContent = expected.toFixed(9);
@@ -650,93 +695,167 @@ function chart3(gU)
 	var TCOPU = document.getElementById('tcopu');
 	TCOPU.textContent = gU[gU.length-1][1].toFixed(9);
 	//mainstuff
-	var svg3 = document.getElementById('svg03');
-	var polyline3= document.getElementById('polyline-id3');
-	chaa(gU,svg3,polyline3);
+// 	var svg3 = document.getElementById('svg03');
+// 	var polyline3= document.getElementById('polyline-id3');
+// 	chaa(gU,svg3,polyline3);
+//
+
+	brr("#svg03",gU);
+
+
 }
 function chart4(gE)
 {
 //for the ETH Price chart
 	var TCPUN = document.getElementById('tcpun');
 	TCPUN.textContent = gE[gE.length-1][1].toFixed(9);
-	var svg4 = document.getElementById('svg04');
-	var polyline4= document.getElementById('polyline-id4');
-	chaa(gE,svg4,polyline4);
+// 	var svg4 = document.getElementById('svg04');
+// 	var polyline4= document.getElementById('polyline-id4');
+// 	chaa(gE,svg4,polyline4);
+//
+
+	brr("#svg04",gE);
+
 }
 function chart5(gU)
 {
 //for the USD MktCap chart
 	var TCMCU = document.getElementById('tcmcu');
 	TCMCU.textContent = gU[gU.length-1][1].toFixed(9);
-	var svg5 = document.getElementById('svg05');
-	var polyline5= document.getElementById('polyline-id5');
-	chaa(gU,svg5,polyline5);
+// 	var svg5 = document.getElementById('svg05');
+// 	var polyline5= document.getElementById('polyline-id5');
+// 	chaa(gU,svg5,polyline5);
+//
+
+	brr("#svg05",gU);
+
 }
 function chart6(gE)
 {
 //for the ETH MktCap chart
 	var TCMCE = document.getElementById('tcmce');
 	TCMCE.textContent = gE[gE.length-1][1].toFixed(9);
-	var svg6 = document.getElementById('svg06');
-	var polyline6= document.getElementById('polyline-id6');
-	chaa(gE,svg6,polyline6);
+// 	var svg6 = document.getElementById('svg06');
+// 	var polyline6= document.getElementById('polyline-id6');
+// 	chaa(gE,svg6,polyline6);
+
+	brr("#svg06",gE);
 }
 function chart7(gU)
 {
 //for the USD Volume chart
 	var TCVU = document.getElementById('tcvu');
 	TCVU.textContent = gU[gU.length-1][1].toFixed(9);
-	var svg7 = document.getElementById('svg07');
-	var polyline7= document.getElementById('polyline-id7');
-	chaa(gU,svg7,polyline7);
+// 	var svg7 = document.getElementById('svg07');
+// 	var polyline7= document.getElementById('polyline-id7');
+// 	chaa(gU,svg7,polyline7);
+
+
+	brr("#svg07",gU);
+
 }
 function chart8(gE)
 {
 //for the ETH Volume chart
 	var TCVE = document.getElementById('tcve');
 	TCVE.textContent = gE[gE.length-1][1].toFixed(9);
-	var svg8 = document.getElementById('svg08');
-	var polyline8= document.getElementById('polyline-id8');
-	chaa(gE,svg8,polyline8);
+
+// 	var svg8 = document.getElementById('svg08');
+// 	var polyline8= document.getElementById('polyline-id8');
+// 	chaa(gE,svg8,polyline8);
+//
+
+	brr("#svg08",gE);
+
 }
-function chaa(gE,svg8,polyline8)
-{
-//for the ETH Volume chart
-//	var svg8 = document.getElementById('svg08');
-//	var polyline8= document.getElementById('polyline-id8');
-	var xf8 = 100; //x-frame-size
-	var yf8 = 100; //y-frame-size
-	//  find the limits on x/y coordinates
-    xmin8 = gE[0][0];   //first time
-    xmax8 = gE[gE.length-1][0];   //last time
-    xi8 = xmax8-xmin8;  //length of x
-    ymin8 = Math.min.apply(Math, gE.map(function(o) { 
-                    return o[1];  
-                }));   //minimum USD price
-    ymax8 = Math.max.apply(Math, gE.map(function(o) { 
-                    return o[1];  
-                }));   //maximum USD Price
-    yi8 = ymax8-ymin8;  //length of y
-    //note: this means charting relative, like binance, not gecko..
-    //create first point
-    var point8atO = svg8.createSVGPoint();
-    point8atO.x=0;
-    point8atO.y=yf8;
-   	polyline8.points.appendItem(point8atO);
-    //now find each pair of x/y
-    for(let qqq=0;qqq<gE.length;qqq++)
-    {
-        var point8 = svg8.createSVGPoint();
-        point8.x = xf8 * (gE[qqq][0]-xmin8)/xi8;
-        point8.y = yf8 * (1 - gE[qqq][1]/ymax8);
-    	polyline8.points.appendItem(point8);
+
+function brr(b,data) {
+
+
+var svg = d3.select(b)
+            .attr("viewBox",`0 0 ${innerWidth-3} ${innerHeight}`),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = innerWidth - margin.left - margin.right,
+    height = innerHeight - margin.top - margin.bottom;
+
+var parseTime = d3.timeParse("%Q"),
+    bisectDate = d3.bisector(function(d) { return d[0]; }).left;
+
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
+
+var line = d3.line()
+    .x(function(d) { return x(d[0]); })
+    .y(function(d) { return y(d[1]); });
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+    x.domain(d3.extent(data, function(d) { return d[0]; }));
+    y.domain([d3.min(data, function(d) { return d[1]; }) / 1.005, d3.max(data, function(d) { return d[1]; }) * 1.005]);
+
+    g.append("g")
+        .attr("class", "axis axis--x")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
+
+    g.append("g")
+        .attr("class", "axis axis--y")
+        .call(d3.axisLeft(y).ticks(6).tickFormat(function(d) { return parseFloat(d); }))
+
+    g.append("path")
+        .datum(data)
+        .attr("class", "line")
+        .attr("d", line);
+
+    var focus = g.append("g")
+        .attr("class", "focus")
+        .style("display", "none");
+
+    focus.append("line")
+        .attr("class", "x-hover-line hover-line")
+        .attr("y1", 0)
+        .attr("y2", height);
+
+    focus.append("line")
+        .attr("class", "y-hover-line hover-line")
+        .attr("x1", width)
+        .attr("x2", width);
+
+    focus.append("circle")
+        .attr("r", 15);
+
+    focus.append("text")
+        .attr("x", -50)
+        .attr("y", -50)
+      	.attr("dy", ".31em");
+
+    svg.append("rect")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class", "overlay")
+        .attr("width", width)
+        .attr("height", height)
+        .on("mouseover", function() { focus.style("display", null); })
+        .on("mouseout", function() { focus.style("display", "none"); })
+        .on("mousemove", mousemove);
+
+    function mousemove() {
+      var x0 = x.invert(d3.mouse(this)[0]),
+          i = bisectDate(data, x0, 1),
+          d0 = data[i - 1],
+          d1 = data[i],
+          d = x0 - d0[0] > d1[0] - x0 ? d1 : d0;
+      focus.attr("transform", "translate(" + x(d[0]) + "," + y(d[1]) + ")");
+      focus.select("text").text(function() { return d[1]; });
+      focus.select(".x-hover-line").attr("y2", height - y(d[1]));
+      focus.select(".y-hover-line").attr("x2", width + width);
     }
-    //create last point
-    var point8atN = svg8.createSVGPoint();
-    point8atN.x=xf8;
-    point8atN.y=yf8;
-   	polyline8.points.appendItem(point8atN);
-}	
+
+
+
+}
+
 function sortTable(n) {
   var t, r, z, i, x, y, v, b, c = 0;
   t = document.getElementById("ct");
