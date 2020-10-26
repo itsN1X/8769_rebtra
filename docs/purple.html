@@ -637,14 +637,14 @@ function chart3(gU)
 	var TCNCP = document.getElementById('tcncp');
 	let TargetPrice = 1.0;
 	OraclePrice = gU[gU.length-1][1];
-	if(OraclePrice/TargetPrice>1.05 || OraclePrice/TargetPrice<1.05)
+    if((OraclePrice/TargetPrice>1.05) && (OraclePrice/TargetPrice<1.05))
 	{
         expected = 10*(OraclePrice/TargetPrice-1);
         TCNCP.textContent = expected.toFixed(9);
     }
     else
     {
-        expected = "No change: Price in Neutral Zone!";
+        expected = "Price in Neutral Zone! 0";
         TCNCP.textContent = expected;
     }
 	var TCOPU = document.getElementById('tcopu');
