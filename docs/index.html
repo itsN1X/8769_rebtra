@@ -623,14 +623,14 @@ function chart1(cD)
 function chart2(cD)
 {
 //for the debase % chart
-	var svg2 = document.getElementById('svg02');
-	var polyline2= document.getElementById('polyline-id2');
-	var xf2 = 100; //x-frame-size
-	var yf2 = 100; //y-frame-size
-	//  find the limits on x/y coordinates
-    xmin2 = parseInt(cD[0].timeStamp);   //first time
-    xmax2 = parseInt(cD[cD.length-1].timeStamp);   //last time
-    xi2 = xmax2-xmin2;  //length of x
+// 	var svg2 = document.getElementById('svg02');
+// 	var polyline2= document.getElementById('polyline-id2');
+// 	var xf2 = 100; //x-frame-size
+// 	var yf2 = 100; //y-frame-size
+// 	//  find the limits on x/y coordinates
+//     xmin2 = parseInt(cD[0].timeStamp);   //first time
+//     xmax2 = parseInt(cD[cD.length-1].timeStamp);   //last time
+//     xi2 = xmax2-xmin2;  //length of x
     //note: this means we can use either of baseNumber or timeStamp
 // first, collect all the datums
     var qlist=[];
@@ -640,39 +640,42 @@ function chart2(cD)
         qdz=parseInt(cD[qqqq].data);
         qdc=(qdz/qdx-1)*100;
         qdt=parseInt(cD[qqqq].timeStamp)
-        qset=[qdt,qdc];
+        qset=[qdt*1000,qdc];
         qlist.push(qset);
     }
     //get base change (%age)
 	var TCLCP = document.getElementById('tclcp');
 	TCLCP.textContent = qset[1].toFixed(9);
-    ymin2 = Math.min.apply(Math, qlist.map(function(o) { 
-                    return parseFloat(o[1]);  
-                }));   //minimum coils
-    ymax2 = Math.max.apply(Math, qlist.map(function(o) { 
-                    return parseFloat(o[1]);  
-                }));   //maximum coils
-    yi2 = ymax2-ymin2;  //length of y
+//     ymin2 = Math.min.apply(Math, qlist.map(function(o) { 
+//                     return parseFloat(o[1]);  
+//                 }));   //minimum coils
+//     ymax2 = Math.max.apply(Math, qlist.map(function(o) { 
+//                     return parseFloat(o[1]);  
+//                 }));   //maximum coils
+//     yi2 = ymax2-ymin2;  //length of y
 //note: parseFloat because qlist is a fractional ratio
     //note: this means charting relative, like binance, not gecko..
     //create first point
-    var point2atO = svg2.createSVGPoint();
-    point2atO.x=0;
-    point2atO.y=yf2;
-   	polyline2.points.appendItem(point2atO);
-    //now find each pair of x/y
-    for(let qqqqq=0;qqqqq<qlist.length;qqqqq++)
-    {
-        var point2 = svg2.createSVGPoint();
-        point2.x = xf2 * (qlist[qqqqq][0]-xmin2)/xi2;
-        point2.y = yf2 * (1-(qlist[qqqqq][1]-ymin2)/yi2);
-    	polyline2.points.appendItem(point2);
-    }
-    //create last point
-    var point2atN = svg2.createSVGPoint();
-    point2atN.x=xf2;
-    point2atN.y=yf2;
-    polyline2.points.appendItem(point2atN);
+//     var point2atO = svg2.createSVGPoint();
+//     point2atO.x=0;
+//     point2atO.y=yf2;
+//    	polyline2.points.appendItem(point2atO);
+//     //now find each pair of x/y
+//     for(let qqqqq=0;qqqqq<qlist.length;qqqqq++)
+//     {
+//         var point2 = svg2.createSVGPoint();
+//         point2.x = xf2 * (qlist[qqqqq][0]-xmin2)/xi2;
+//         point2.y = yf2 * (1-(qlist[qqqqq][1]-ymin2)/yi2);
+//     	polyline2.points.appendItem(point2);
+//     }
+//     //create last point
+//     var point2atN = svg2.createSVGPoint();
+//     point2atN.x=xf2;
+//     point2atN.y=yf2;
+//     polyline2.points.appendItem(point2atN);
+
+    brr("#svg02",qlist);
+
 }
 function mfcs(smh) {
 	var TCCCS = document.getElementById('tcccs');
