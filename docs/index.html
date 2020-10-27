@@ -78,15 +78,15 @@ $COIL:
   padding: 10px;
 }
 .main {
-  background: ;//#222;
+  background: #222;
   width: 100%;
 }
 .sidebar {
-  background: ;//#272727;
+  background: #272727;
   width: 100%;
 }
 .col-q2 {
-  background:   ;//#262626;
+  background:   #262626;
   margin: 10px;
   width: auto;
   height: auto;
@@ -96,7 +96,7 @@ $COIL:
   box-shadow: -1px 2px 1px 1px rgba(0,222,222,1);
   }
 .col-q3 {
-  background:   ;//#262626;
+  background:   #262626;
   margin: 10px;
   width: auto;
   height: auto;
@@ -246,17 +246,21 @@ color:#321;
 }
 
 
-
 .axis {
 	font: 10px sans-serif;
 }
 
 .axis path,
-.axis text,
 .axis line {
   fill: none;
   stroke: #1aa;
-  stroke-width: 2px;
+  stroke-width: 0.2vw;
+  shape-rendering: crispEdges;
+}
+.axis text {
+  fill: #1aa;
+  stroke: #1aa;
+  stroke-width: 0.1vw;
   shape-rendering: crispEdges;
 }
 
@@ -271,24 +275,25 @@ color:#321;
   pointer-events: all;
 }
 
-.focus circle,
-.focus text {
+.focus circle{
   fill: none;
-  stroke: #0ea;
-  stroke-width: 2px;
+  stroke: #0ea;;
+  stroke-width: 0.2vw;
+}
+.focus text {
+  fill: #0ea;
+  stroke: #0ea;;
+  stroke-width: 0.1vw;
 }
 
 .hover-line {
   stroke: #0ff;
-  stroke-width: 2px;
+  stroke-width: 0.1vw;
   stroke-dasharray: 3,3;
 }
 
 svg {color:red;
   background:linear-gradient(to top, rgba(0,5,5,1), rgba(0,99,99,0.1))}
-
-
-
 
 </style>
 <div class="parent">
@@ -398,8 +403,7 @@ svg {color:red;
 <td onclick="sortTable(3)">Circulation</td>
 </thead>
 </table>
-<br>
-<div align="center">(<font color="#0f0">Rebase</font> ║ <font color="#f0f">Neutral</font> ║ <font color="#f00">Debase</font>)</div>
+<br><div align="center">(<font color="#0f0">Rebase</font> ║ <font color="#f0f">Neutral</font> ║ <font color="#f00">Debase</font>)</div>
   </div>
 </div>
 <div class="parent" id="c1">
