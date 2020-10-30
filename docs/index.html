@@ -725,7 +725,7 @@ function chart8(gE)
 function brr(b,data) {
 var svg = d3.select(b)
             .attr("viewBox",`0 0 ${innerWidth-3} ${innerHeight}`),
-    margin = {top: 20, right: 20, bottom: 30, left: 72},
+    margin = {top: 50, right: 36, bottom: 30, left: 72},
     width = innerWidth - margin.left - margin.right,
     height = innerHeight - margin.top - margin.bottom;
 var parseTime = d3.timeParse("%Q"),
@@ -760,9 +760,8 @@ var g = svg.append("g")
     focus.append("circle")
         .attr("r", 15);
     focus.append("text")
-        .attr("x", -50)
-        .attr("y", -50)
-      	.attr("dy", ".31em");
+        .attr("x", -72)
+        .attr("y", -40)
     svg.append("rect")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .attr("class", "overlay")
