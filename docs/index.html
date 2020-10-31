@@ -53,7 +53,7 @@ $COIL:
 <script src="d3.v4.min.js"></script>
 <body>
 <div align="right"><label for="check" class="footr"><font color="#0cc" id="flilab" size=2>♣♧♦♢♠ Switch theme</font></label><input onchange="t+=1;switcher(t)" type="checkbox" id="check"/></div>
-  <h1 class="footr">✨ (((rebtra : v0.0.304)))</h1><br>
+  <h1 class="footr">✨ (((rebtra : v0.0.306)))</h1><br>
   <h3 class="navi"><a href="https://CoilCrypto.com">CoilCrypto.com</a> <a href="https://spring.CoilCrypto.com">Spring</a> <a href="#io" onclick="fn02()">History</a> <a href="#io" onclick="mf01('prusd')">Charts</a></h3><br>
 <!--This stylesheet is under a copyright by itsN1X.
 © 2020 itsN1X | E. X. Information Technologies | 9Xo.github.io-->
@@ -175,14 +175,13 @@ background: rgba(0,55,55,1);
  padding:  0 0 0 2vw
 }
 .navi {
- color: #021;
- text-shadow: 0 5px 15px rgb(0,255,255);
+ text-shadow: 0 10px 15px rgb(0,0,0);
  font-size:  3vh;
  padding:  0 0 0 2vw;
  }
 .navi a{
  text-decoration-line: none;
- color: #011;
+ color: #0ec;
  padding:2vw;
 }
 h2,h4 {
@@ -289,28 +288,57 @@ color:#321;
   stroke-width: 0.1vw;
   stroke-dasharray: 3,3;
 }
-svg {color:red;
-  background:linear-gradient(to top, rgba(0,5,5,1), rgba(0,99,99,0.1))}
+svg {
+  background:linear-gradient(to top, rgba(0,5,5,1), rgba(0,99,99,0.1))
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  display: none;
+  width: 36vw;
+  background-color: rgba(16,32,32,0.75);
+  color: #1ff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  top: 100%;
+  left: 50%;
+  margin-left: -18vw;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  display: block;
+}
 </style>
 <div class="parent">
+  <div align="center" class="col-q2">Total bases<br>=<br>
+  <font size="5"><span id="tctbn">NNN,NNN</span></font>
+  </div>
   <div align="center" class="col-q2">Market Price<br>=<br>$
   <font size="5"><span id="tcmpu">?.????</span></font>
   </div>
   <div align="center" class="col-q2">Uniswap Price<br>=<br>Ξ
   <font size="5"><span id="tcpun">?.????</span></font>
   </div>
-  <div align="center" class="col-q2">Oracle Price<br>=<br>$
-  <font size="5"><span id="tcopu">?.????</span></font>
+  <div align="center" class="col-q2">Oracle Price<br>$
+  <font size="5"><span id="tcopu">?.????</span></font><br>(Latest Report)
   </div>
   <div align="center" class="col-q2">Price Target<br>=<br>$
-  <font size="5"><span id="tctpu">1.0</span></font>
+  <font size="5"><span id="tctpu">1.0000</span></font>
   </div>
-  <div align="center" class="col-q2">CPI<br>
+  <div align="center" class="col-q2">2020 Dollar CPI<br>
+  <font size="5"><span id="tccpr">0.00</span>%</font><br>
+  <font size="3"><span>(relative)</span></font>
+  </div>
+  <div align="center" class="col-q2">2019 Dollar CPI<br>
   <font size="5"><span id="tccpi">100.00</span>%</font><br>
   <font size="3"><span>(absolute)</span></font>
-  </div>
-  <div align="center" class="col-q2">Total bases<br>=<br>
-  <font size="5"><span id="tctbn">NNN,NNN</span></font>
   </div>
   <div align="center" class="col-q2">First base<br>
   <font size="5"><span id="tcfba"></span> ago</font><br>
@@ -332,15 +360,11 @@ svg {color:red;
   <font size="5">In about <span id="nt"></span></font><br>
   <font size="3"><span id="nd">4:20 PM April 20, 1969</span></font>
   </div>
-  <div align="center" class="col-q2">Next Change<br>
+  <div align="center" class="col-q2 tooltip">Next Change<br>
   <font size="5"><span id="tcncp">12.1234</span></font>%<br>
   <font size="3"><span id="tcncn">(estimated)</span></font>
-  </div>
-  <div align="center" class="col-q2">Circulation<br>=<br>
-  <font size="5"><span id="tcccs">CCC,CCC,CCC.cc</span></font>
-  </div>
-  <div align="center" class="col-q2">Total Supply<br>=<br>
-  <font size="5"><span id="ts">TTT,TTT,TTT,tttt</span></font>
+  <span class="inform tooltiptext">NOTE:<br>This is only a prediction.<i>
+  <br>It assumes the Oracle price at the time of base will be equal to the current market price.</i></span>
   </div>
   <div align="center" class="col-q2">USD Market Capitalization<br>=<br>$
   <font size="5"><span id="tcmcu">111,222,333,444</span></font>
@@ -353,6 +377,12 @@ svg {color:red;
   </div>
   <div align="center" class="col-q2">24h ETH Volume<br>=<br>Ξ
   <font size="5"><span id="tcve">222,222,222,222</span></font>
+  </div>
+  <div align="center" class="col-q2">Circulation<br>=<br>
+  <font size="5"><span id="tcccs">CCC,CCC,CCC.cc</span></font>
+  </div>
+  <div align="center" class="col-q2">Total Supply<br>=<br>
+  <font size="5"><span id="ts">TTT,TTT,TTT,tttt</span></font>
   </div>
 </div>
 <div class="parent" id="io">
@@ -489,7 +519,7 @@ svg {color:red;
 </svg></div>
 </div>
 ✨
-<h1 class="footr">rebtra <i>v0.0.304</i></h1><h2 class="footr">CoilCrypto.com<hr>
+<h1 class="footr">rebtra <i>v0.0.306</i></h1><h2 class="footr">CoilCrypto.com<hr>
 <!--9Xo is a public unit of E.X. (I) Technologies-->
 <div align="right"><font size="3">@ 
 <i><a style="color:gold;background-color:purple;text-decoration-line: none;" href="https://github.com/itsN1X">i t s <b>N1</b>X # 2 5 5 1</a><br>++♥;</i></font></div>
@@ -507,6 +537,8 @@ eg=new XMLHttpRequest();
 eg.open("GET","https://api.coingecko.com/api/v3/coins/coil-crypto/market_chart?vs_currency=eth&days=max",true);
 ug=new XMLHttpRequest();
 ug.open("GET","https://api.coingecko.com/api/v3/coins/coil-crypto/market_chart?vs_currency=usd&days=max",true);
+ec=new XMLHttpRequest();
+ec.open("GET","https://api.etherscan.io/api?module=logs&action=getLogs&toBlock=latest&address=0x7f0c14f2f72ca782eea2835b9f63d3833b6669ab&topic0=0x41d948a7f29cc695f5d4b3ec147f766bffa165ddd317470fbe05c86d0a9c3e04&apikey=E886KCIJYVFPED7GXEA5PR9I9WHCTBVHJ4",true);
 function mt(xD)
 {
     for(let qq=0;qq<xD.length;qq++)
@@ -581,7 +613,7 @@ function chart1(cD)
 	TCLCN.textContent = ((parseInt(cD[cD.length-1]["data"])-parseInt(cD[cD.length-1-1]["data"]))/1e9).toFixed(9);
 	//collect all datums
 	var aliste = [];
-	for(let s=0;s<cD.length-1;s++)
+	for(let s=0;s<cD.length;s++)
 	{
         alist = [parseInt(cD[s].timeStamp*1e3),parseInt(cD[s].data)/1e9];
         aliste.push(alist);
@@ -641,7 +673,7 @@ function mfcs(smh) {
 	interact, view or download our
 	Softwares/product/Information.
 	
-© rebtra: v0.0.304
+© rebtra: v0.0.306
 Coil Crypto Rebase Tracer Tracker
 
 To tip me or to donate, visit:
@@ -671,6 +703,7 @@ function chart3(gU)
 	//TEMPORARY FIX
 	//ORACLE PRICE
 	//NEXT BASE (CHANGE) CALCULATION
+	//ASSUMES: "Oracle price at the time of basing is same as current market price."
 	var TCNCP = document.getElementById('tcncp');
 	let TargetPrice = 1.0;
 	OraclePrice = gU[gU.length-1][1];
@@ -683,8 +716,6 @@ function chart3(gU)
         expected = (10*(OraclePrice/TargetPrice-1)).toFixed(9);
     }
     TCNCP.textContent = expected;
-	var TCOPU = document.getElementById('tcopu');
-	TCOPU.textContent = gU[gU.length-1][1].toFixed(9);
 	brr("#svg03",gU);
 }
 function chart4(gE)
@@ -761,7 +792,7 @@ var g = svg.append("g")
         .attr("r", 15);
     focus.append("text")
         .attr("x", -72)
-        .attr("y", -40)
+        .attr("y",-36 )
     svg.append("rect")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .attr("class", "overlay")
@@ -781,6 +812,24 @@ var g = svg.append("g")
       focus.select(".x-hover-line").attr("y2", height - y(d[1]));
       focus.select(".y-hover-line").attr("x2", width + width);
     }
+}
+function noc(eC)
+{
+//CPI-2019 (AMPL) : ABSOLUTE
+    cpinow = parseInt("0x"+eC[eC.length-1].data.substr(66,64));
+    TCCPI = document.getElementById("tccpi");
+    TCCPI.textContent = (cpinow/1e18).toFixed(9);
+//CPI-2020 (COIL) : RELATIVE
+    cpi20 = (cpinow-110356333333333339472)/1e18;
+    TCCPR = document.getElementById("tccpr");
+    TCCPR.textContent = cpi20.toFixed(9);
+//TargetPrice
+    TCTPU = document.getElementById("tctpu");
+    TCTPU.textContent = (1+cpi20/100).toFixed(9);
+//OraclePrice
+    lop = parseInt(eC[eC.length-1].data.substr(0,66));
+	var TCOPU = document.getElementById('tcopu');
+	TCOPU.textContent = (lop/1e18).toFixed(9);
 }
 function sortTable(n) {
   var t, r, z, i, x, y, v, b, c = 0;
@@ -840,9 +889,15 @@ eg.onload = function()
     chart6(ed.market_caps);
     chart8(ed.total_volumes);
 }
+ec.onload = function()
+{
+    var eo=JSON.parse(this.response);
+    noc(eo.result);
+}
 eg.send();
 ug.send();
 er.send();
+ec.send();
   var ss0 = document.getElementById("logt");
   var ss1 = document.getElementById("c1");
   var ss2 = document.getElementById("c2");
@@ -1143,7 +1198,8 @@ function switcher(s)
         }
         for(let d=0;d<q0.length;d++)
         {
-            q0[d].style.color = "#011";
+            q0[d].style.color = "#0ec";
+            q0[d].style.textShadow = "0 10px 15px rgb(0,0,0)";
         }
     }
 }
