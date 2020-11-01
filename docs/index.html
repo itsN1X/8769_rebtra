@@ -1037,7 +1037,8 @@ function S(s)
     q8=document.getElementsByTagName("body");
     q9=document.getElementsByClassName("footr");
     q0=(document.getElementsByClassName("navi")[0]).getElementsByTagName("a");
-    if(s%6==0)
+    qa=document.getElementsByTagName("font");
+    if(s%9==0)
     {
         for(let d=0;d<q1.length;d++)
         {
@@ -1061,7 +1062,7 @@ function S(s)
         }
         q6.textContent = "Theme : ⚁";
     }
-    else if(s%6==1)
+    else if(s%9==1)
     {
         for(let d=0;d<q1.length;d++)
         {
@@ -1107,7 +1108,7 @@ function S(s)
             q0[d].style.color = "#deb";
         }
     }
-    else if(s%6==2)
+    else if(s%9==2)
     {
         for(let d=0;d<q1.length;d++)
         {
@@ -1131,7 +1132,7 @@ function S(s)
         }
         q6.textContent = "Theme : ⚃";
     }
-    else if(s%6==3)
+    else if(s%9==3)
     {
         for(let d=0;d<q1.length;d++)
         {
@@ -1155,7 +1156,7 @@ function S(s)
         }
         q6.textContent = "Theme : ⚄";
     }
-    else if(s%6==4)
+    else if(s%9==4)
     {
         for(let d=0;d<q1.length;d++)
         {
@@ -1184,7 +1185,7 @@ function S(s)
         {
             q5[d].style.background = "rgba(0, 0, 0, 0) linear-gradient(to bottom, rgb(50, 5, 5), rgba(0, 8,8, 1)) repeat scroll 0% 0%";
         }
-        q6.textContent = "Theme : ⚅";
+        q6.textContent = "Theme : ⚅⚀";
         for(let d=0;d<q7.length;d++)
         {
             q7[d].style.backgroundImage = "(to bottom, rgba(30,15,15,1), rgba(40,33,30,.51))";
@@ -1203,7 +1204,31 @@ function S(s)
             q0[d].style.textShadow = "0 10px 15px rgb(0,0,0)";
         }
     }
-    else if(s%6==5)
+    else if(s%9==5)
+    {
+        for(let d=0;d<qa.length;d++)
+        {
+            qa[d].style.color = "#ee8";
+        }
+        q6.textContent = "Theme : ⚅⚁";
+    }
+    else if(s%9==6)
+    {
+        for(let d=0;d<qa.length;d++)
+        {
+            qa[d].style.color = "#8e8";
+        }
+        q6.textContent = "Theme : ⚅⚂";
+    }
+    else if(s%9==7)
+    {
+        for(let d=0;d<qa.length;d++)
+        {
+            qa[d].style.color = "#8ee";
+        }
+        q6.textContent = "Theme : ⚅⚃";
+    }
+    else if(s%9==8)
     {
         for(let d=0;d<q1.length;d++)
         {
@@ -1249,6 +1274,10 @@ function S(s)
         {
             q0[d].style.color = "#0ec";
             q0[d].style.textShadow = "0 10px 15px rgb(0,0,0)";
+        }
+        for(let d=0;d<qa.length;d++)
+        {
+            qa[d].style.color = "";
         }
     }
 }
