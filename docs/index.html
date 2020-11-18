@@ -869,13 +869,10 @@ function noc(eC)
     tarp = 1+cpi20/100;
     TCTPU = document.getElementById("tctpu");
     TCTPU.textContent = tarp.toFixed(9);
-    console.log("tarp",tarp);
     TCTPUL = document.getElementById("tctpul");
     TCTPUL.textContent = (0.95*tarp).toFixed(9);
-    console.log("lower",0.95*tarp);
     TCTPUU = document.getElementById("tctpuu");
     TCTPUU.textContent = (1.05*tarp).toFixed(9);
-    console.log("upper",1.05*tarp);
 //OraclePrice
     lop = parseInt(eC[eC.length-1].data.substr(0,66));
 	var TCOPU = document.getElementById('tcopu');
@@ -885,7 +882,6 @@ function noc(eC)
 	TCOPUN.textContent = eC.length;
 //OraclePriceReportDetails
     correct=(tarp-lop/1e18)/tarp*10;
-    console.log(tarp,lop/1e18,correct);
 	var TCOPUD = document.getElementById('tcopud');
 	deta="<br><i>Base №: </i><b>" + eC.length +
          "<br></b><i>Block № (Ethereum Height): </i><b>" +
