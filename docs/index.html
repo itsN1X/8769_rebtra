@@ -676,9 +676,10 @@ oo=new Date(Date.now()-tt);
 //NT.textContent=op.getUTCHours()+"h "+op.getUTCMinutes()+"m "+op.getUTCSeconds()+"s";
 //firstbase:(0x5f3aefd9)=1597698009
 b1=new Date(parseInt(0x5f3aefd9)*1e3);
-bn=new Date((Date.now()-b1)%82800000);
+bn=new Date(82800000-((Date.now()-b1)%82800000));
 //window size: 15*60=900(*1e3)
-if(bn<900000)
+//if bn over (23hrs-9e5ms)
+if(bn>(82800000-900000))
 {
     var vto="Basing window: Open now!";
     NT.textContent=vto;
