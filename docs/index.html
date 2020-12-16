@@ -1384,42 +1384,35 @@ function stcaf(i)
 }
 function stcach2(i)
 {
-	console.log("i at stcach2:",i);
 	n=0;
 	document.getElementById("stocal2").textContent="Churning data…";
 	rc2vs=new XMLHttpRequest();
 	rc2vs.open("GET","https://api.etherscan.io/api?module=stats&action=tokensupply&contractaddress=0xeaceac83cecca6beebc736edd6360d1633175b01&apikey=E886KCIJYVFPED7GXEA5PR9I9WHCTBVHJ4",true);
 	rc2vs.onload = function(){
 		var vs=(JSON.parse(this.response)).result/1e18;
-		console.log("numov2:",vs);
-		console.log("i at stcach2 after numov2:",i);
 		!isNaN(i)?(stca2(i,vs)):alert(`Please check your input, it seems wrong.\n\nIt needs to be either:\n - A number of UETHCOILs\n - A valid (base16) Ethereum address.`);
 	}
 	rc2vs.send();
 }
 function stca2(i,vs)
 {
-	console.log("i at stca2:",i);
 	document.getElementById("stocal2").textContent="Analyzing Liuidity data…";
 	//if(i>vs){alert(`The input LPT seems off the mark..\nI think the LP amounts should\n be under ${vs} UETHCOILs!`);}
 	parseFloat(i)==i?stcan2(i,vs):stcaa2(i,vs);
 }
 function stcan2(i,vs)
 {
-	console.log("i at stcan2:",i);
 	document.getElementById("stocal2").textContent="Checking the numbers…";
 	if(i< vs)	stcaf2(i,vs);
 	else	alert(`The input LPT seems off the mark..\nI think the LP amounts should be\nunder ${vs} UETHCOILs!`);
 }
 function stcaa2(i,vs)
 {
-	console.log("i at stcaa2:",i);
 	document.getElementById("stocal2").textContent="Fetching balances…";
 	rc2=new XMLHttpRequest();
 	rc2.open("GET","https://api.etherscan.io/api?module=account&action=tokenbalance&contractaddress=0xeaceac83cecca6beebc736edd6360d1633175b01&address="+i+"&tag=latest&apikey=E886KCIJYVFPED7GXEA5PR9I9WHCTBVHJ4",true);
 	rc2.onload = function()
 	{
-		console.log("i at stcaa2 inside with fetched abal:",i);
 		var ans=JSON.parse(this.response);
 		(ans=="Invalid address format")?alert(`The address.. seems..\n- something..\n- unexpected..\n\nPlease recheck and retry (:`):stcaf2(ans.result/1e18,vs);
 	}
@@ -1427,7 +1420,6 @@ function stcaa2(i,vs)
 }
 function stcaf2(i,vs)
 {
-	console.log("i at stcaf2, final:",i);
 	cn=document.getElementById("tcncp").textContent;
 	cn=cn=="Price in Neutral Zone! 0"?0:Number(cn)/100;
 	cl=document.getElementById("tclcp").textContent;
@@ -1469,125 +1461,6 @@ eo.send();
   var ss6 = document.getElementById("c6");
   var ss7 = document.getElementById("c7");
   var ss8 = document.getElementById("c8");
-/*
-ss0.style.display="none";
-ss1.style.display="block";
-ss2.style.display="none";
-ss3.style.display="none";
-ss4.style.display="none";
-ss5.style.display="none";
-ss6.style.display="none";
-ss7.style.display="none";
-ss8.style.display="none";
-function f1() {
-    ss0.style.display="none";
-    ss1.style.display="block";
-    ss2.style.display="none";
-    ss3.style.display="none";
-    ss4.style.display="none";
-    ss5.style.display="none";
-    ss6.style.display="none";
-    ss7.style.display="none";
-    ss8.style.display="none";
-}
-function f2() {
-    ss0.style.display="none";
-    ss1.style.display="none";
-    ss2.style.display="block";
-    ss3.style.display="none";
-    ss4.style.display="none";
-    ss5.style.display="none";
-    ss6.style.display="none";
-    ss7.style.display="none";
-    ss8.style.display="none";
-}
-function f3() {
-    ss0.style.display="none";
-    ss1.style.display="none";
-    ss2.style.display="none";
-    ss3.style.display="block";
-    ss4.style.display="none";
-    ss5.style.display="none";
-    ss6.style.display="none";
-    ss7.style.display="none";
-    ss8.style.display="none";
-}
-function f4() {
-    ss0.style.display="none";
-    ss1.style.display="none";
-    ss2.style.display="none";
-    ss3.style.display="none";
-    ss4.style.display="block";
-    ss5.style.display="none";
-    ss6.style.display="none";
-    ss7.style.display="none";
-    ss8.style.display="none";
-}
-function f5() {
-    ss0.style.display="none";
-    ss1.style.display="none";
-    ss2.style.display="none";
-    ss3.style.display="none";
-    ss4.style.display="none";
-    ss5.style.display="block";
-    ss6.style.display="none";
-    ss7.style.display="none";
-    ss8.style.display="none";
-}
-function f6() {
-    ss0.style.display="none";
-    ss1.style.display="none";
-    ss2.style.display="none";
-    ss3.style.display="none";
-    ss4.style.display="none";
-    ss5.style.display="none";
-    ss6.style.display="block";
-    ss7.style.display="none";
-    ss8.style.display="none";
-}
-function f7() {
-    ss0.style.display="none";
-    ss1.style.display="none";
-    ss2.style.display="none";
-    ss3.style.display="none";
-    ss4.style.display="none";
-    ss5.style.display="none";
-    ss6.style.display="none";
-    ss7.style.display="block";
-    ss8.style.display="none";
-}
-function f8() {
-    ss0.style.display="none";
-    ss1.style.display="none";
-    ss2.style.display="none";
-    ss3.style.display="none";
-    ss4.style.display="none";
-    ss5.style.display="none";
-    ss6.style.display="none";
-    ss7.style.display="none";
-    ss8.style.display="block";
-}
-function mf01(vaa) {
-if (vaa=="supabs") {f1();}
-else if (vaa=="suprel"){ f2();}
-else if (vaa=="prusd") {f3();}
-else if (vaa=="preth") {f4();}
-else if (vaa=="mcusd") {f5();}
-else if (vaa=="mceth") {f6();}
-else if (vaa=="volusd") {f7();}
-else if (vaa=="voleth") {f8();}
-}
-function fn02() {
-    ss0.style.display="block";
-    ss1.style.display="none";
-    ss2.style.display="none";
-    ss3.style.display="none";
-    ss4.style.display="none";
-    ss5.style.display="none";
-    ss6.style.display="none";
-    ss7.style.display="none";
-    ss8.style.display="none";
-}*/
 function lmd(m)
 {
     //v0.0.322
